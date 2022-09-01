@@ -1,118 +1,78 @@
 ---
-import BaseHead from "@components/BaseHead.astro";
-import Header from "@components/Header.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPostPreview from "@components/BlogPostPreview.astro";
-import '@styles/styles.scss';
 
 let title = "Peter Morgan - Web Developer";
 let description = "The perfect starter for your perfect blog.";
 
 // Use Astro.glob to fetch all post with associated frontmatter
-const unsortedPosts = await Astro.glob("../data/posts/*.md");
+const unsortedPosts = await Astro.glob("../data/blog-posts/*.md");
 const posts = unsortedPosts.sort(function (a, b) {
 	return (
 		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
 	);
 });
+const firstThreePosts = posts.slice(0,3);
+
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
-	</head>
-
-	<body>
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-12 col-lg-8 col-xl-6 my-5">
-					<h1><a href="/">Peter Morgan</a></h1>
-					<ul class="list-inline list-unstyled">
-						<li>
-							<a href="mailto:peter@1080peter.com">Email Me</a>
-						</li>
-						<li>
-							<a href="https://www.linkedin.com/in/peter-morgan-21585446">LinkedIn</a>
-						</li>
-						<li>
-							<a href="https://github.com/PeterMorganGH">GitHub</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<section class="col-12 col-lg-8 col-xl-6" aria-label="Blog post list" class="col-12 col-lg-8 col-xl-6">
-					<h2 class="mb-5">Blog</h2>
-
-					{posts.map(({ frontmatter }) => (
-						<BlogPostPreview
-							title={frontmatter.title}
-							description={frontmatter.description}
-							publishDate={frontmatter.publishDate}
-							url={frontmatter.slug}
-						/>
-					))}
-				</section>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-12 col-lg-8 col-xl-6">
-					<h2 class="mb-3">Portfolio</h2>
-					<h3><a href="https://SmartMusic.com">SmartMusic.com</a></h3>
-					<ul class="mb-3">
-						<li>
-							Coded changes to page layouts and content, and created new pages to customize WordPress
-							theme for client MakeMusic in Boulder, CO
-						</li>
-					</ul>
-					<h3><a href="https://thedjpodcast.com">TheDJPodcast.com</a></h3>
-					<ul class="mb-4">
-						<li>Produced over 250 video tutorials on DJ'ing and music production for YouTube channel with
-							over 25,000 subscribers and 4.7 million video views</li>
-						<li>Developed WordPress theme with custom course catalog</li>
-					</ul>
-					<h3><a href="https://github.com/DFortun81/ATT-Classic">All the Things - Classic</a></h3>
-					<ul class="mb-4">
-						<li>Contribute to open source game addon for World of Warcraft: Classic</li>
-						<li>Provide user support and project issue tracking</li>
-					</ul>
-					<h3>
-						<a href="https://github.com/PeterMorganGH/143chars">143chars</a>
-					</h3>
-					<ul class="mb-4">
-						<li>
-							Built a Twitter-like website and REST API using Node.js/Express and MongoDB; front end
-							website built with Pug templating engine
-						</li>
-					</ul>
-					<h3>
-						<a href="https://github.com/PeterMorganGH/water-meter">Water Meter</a>
-					</h3>
-					<ul class="mb-5">
-						<li>Built prototype app for conceptual Internet of Things water meter with Vue.js, VueX, and Vue
-							Router</li>
-					</ul>
-				</div>
+<BaseLayout title={title} description={description}>
+	<div class="container">
+		<div class="row justify-content-center">
+			<section aria-label="Blog post list" class="col-12 col-lg-8 col-xl-6">
+				<h2 class="mb-5">Blog</h2>
+				{firstThreePosts.map(({ frontmatter}) => (
+					<BlogPostPreview
+						title={frontmatter.title}
+						description={frontmatter.description}
+						publishDate={frontmatter.publishDate}
+						url={frontmatter.slug}
+					/>
+				))}
+			</section>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-8 col-xl-6">
+				<h2 class="mb-3">Portfolio</h2>
+				<h3><a href="https://SmartMusic.com">SmartMusic.com</a></h3>
+				<ul>
+					<li>
+						Coded changes to page layouts and content, and created new pages to customize WordPress
+						theme for client MakeMusic in Boulder, CO
+					</li>
+				</ul>
+				<h3><a href="https://thedjpodcast.com">TheDJPodcast.com</a></h3>
+				<ul class="mb-4">
+					<li>Produced over 250 video tutorials on DJ'ing and music production for YouTube channel with
+						over 25,000 subscribers and 4.7 million video views</li>
+					<li>Developed WordPress theme with custom course catalog</li>
+				</ul>
+				<h3><a href="https://github.com/DFortun81/ATT-Classic">All the Things - Classic</a></h3>
+				<ul class="mb-4">
+					<li>Contribute to open source game addon for World of Warcraft: Classic</li>
+					<li>Provide user support and project issue tracking</li>
+				</ul>
+				<h3>
+					<a href="https://github.com/PeterMorganGH/143chars">143chars</a>
+				</h3>
+				<ul class="mb-4">
+					<li>
+						Built a Twitter-like website and REST API using Node.js/Express and MongoDB; front end
+						website built with Pug templating engine
+					</li>
+				</ul>
+				<h3>
+					<a href="https://github.com/PeterMorganGH/water-meter">Water Meter</a>
+				</h3>
+				<ul class="mb-5">
+					<li>Built prototype app for conceptual Internet of Things water meter with Vue.js, VueX, and Vue
+						Router</li>
+				</ul>
 			</div>
 		</div>
-	</body>
-</html>
+	</div>
+</BaseLayout>
 
 <style>
-	.content {
-		margin-top: 4rem;
-		margin-bottom: 8rem;
-	}
 
-	.intro {
-		padding-bottom: 4rem;
-		margin-bottom: 2rem;
-		border-bottom: 4px solid var(--theme-divider);
-	}
-
-	h1 {
-		font-size: 2.5rem;
-		font-weight: 700;
-	}
 </style>
