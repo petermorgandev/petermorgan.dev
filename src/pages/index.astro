@@ -2,10 +2,8 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPostPreview from "@components/BlogPostPreview.astro";
 
-let title = "Peter Morgan - Web Developer";
-let description = "The perfect starter for your perfect blog.";
+let description = "Hi. I'm Peter Morgan. Welcome to my small corner of the internet.";
 
-// Use Astro.glob to fetch all post with associated frontmatter
 const unsortedPosts = await Astro.glob("../data/blog-posts/*.md");
 const posts = unsortedPosts.sort(function (a, b) {
 	return (
@@ -16,7 +14,7 @@ const firstThreePosts = posts.slice(0,3);
 
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout {description}>
 	<div class="container">
 		<div class="row justify-content-center">
 			<section aria-label="Blog post list" class="col-12 col-lg-8 col-xl-6">
