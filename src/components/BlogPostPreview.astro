@@ -1,21 +1,21 @@
 ---
-export interface Props {
-	title: string;
-	description: string;
-	publishDate: string;
-	url: string;
-}
+const { data } = Astro.props;
+const title = data.frontmatter.title;
+const description = data.frontmatter.description;
+const publishDate = data.frontmatter.publishDate;
+const url = data.frontmatter.slug;
 
-const { title, description, publishDate, url } = Astro.props as Props;
+const blogDirectory = 'blog';
+
 ---
 
 <article class="post-preview">
 	<header>
 		<time>{publishDate}</time>
-		<a href={`/blog/${url}/`}><h1 class="title">{title}</h1></a>
+		<a href={`/${blogDirectory}/${url}/`}><h2>{title}</h2></a>
 	</header>
 	<p>{description}</p>
-	<a href={`/blog/${url}/`}>Read more</a>
+	<a href={`/${blogDirectory}/${url}/`}>Read more</a>
 </article>
 
 <style>

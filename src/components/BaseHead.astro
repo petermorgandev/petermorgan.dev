@@ -10,11 +10,7 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title: propsTitle, description } = Astro.props;
 
-let metaTitle = 'Peter Morgan - Website Developer';
-
-if(propsTitle){
-	metaTitle = `${propsTitle} - ${metaTitle}`;
-}
+let metaTitle = propsTitle ? `${propsTitle} - Peter Morgan - Website Developer` : 'Peter Morgan - Website Developer';
 ---
 
 <meta charset="utf-8" />
