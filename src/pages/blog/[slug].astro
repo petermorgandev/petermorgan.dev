@@ -13,11 +13,10 @@ const { slug } = Astro.params;
 const { post } = Astro.props;
 const {
   Content,
-	frontmatter,
-  frontmatter: { title, added, updated, tags, description },
+	frontmatter
 } = post;
 
 ---
-<BlogPostLayout {title} {description} >
+<BlogPostLayout data={frontmatter} >
 	<Content />
 </BlogPostLayout>

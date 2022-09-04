@@ -2,7 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 
-const {	title, description, publishDate, heroImage } = Astro.props;
+const {	data: {title, description, publishDate, modifiedDate} } = Astro.props;
 ---
 
 <html>
@@ -17,7 +17,10 @@ const {	title, description, publishDate, heroImage } = Astro.props;
 				<div class="col-12 col-lg-8 col-xl-6">
 					<article class="wrapper content">
 						<h1 class="title">{title}</h1>
-						<time>{publishDate}</time>
+						<p>Posted on: <time>{publishDate}</time></p>
+						{modifiedDate && (
+							<p>Last Updated on: <time>{modifiedDate}</time></p>
+						)}
 						<main>
 							<slot></slot>
 						</main>
