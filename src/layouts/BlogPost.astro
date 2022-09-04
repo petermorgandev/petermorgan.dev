@@ -16,19 +16,8 @@ const {	title, description, publishDate, heroImage } = Astro.props;
 			<div class="row justify-content-center">
 				<div class="col-12 col-lg-8 col-xl-6">
 					<article class="wrapper content">
-						
-							{heroImage && (
-								<img
-									width="720"
-									height="420"
-									loading="lazy"
-									src={heroImage.src}
-									alt={heroImage.alt}
-								/>
-							)}
-							<h1 class="title">{title}</h1>
-							<time>{publishDate}</time>
-					
+						<h1 class="title">{title}</h1>
+						<time>{publishDate}</time>
 						<main>
 							<slot></slot>
 						</main>
