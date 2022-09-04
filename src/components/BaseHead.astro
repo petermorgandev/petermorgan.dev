@@ -1,4 +1,5 @@
 ---
+import Favicon from '@components/head/favicon.astro';
 import '@styles/styles.scss';
 
 export interface Props {
@@ -35,6 +36,8 @@ if(propsTitle){
 <meta property="twitter:title" content={metaTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content="https://astro.build/social.png" />
+
+<Favicon />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com" />
