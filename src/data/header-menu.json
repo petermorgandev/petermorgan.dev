@@ -1,7 +1,15 @@
 [
 	{
+		"url": "/",
+		"text": "Home"
+	},
+	{
+		"url": "/blog/",
+		"text": "Blog"
+	},
+	{
 		"url": "mailto:peter@petermorgan.dev",
-		"text": "Email Me"
+		"text": "Email"
 	},
 	{
 		"url": "https://www.linkedin.com/in/petermorgandev",
@@ -10,9 +18,5 @@
 	{
 		"url": "https://github.com/PeterMorganDev",
 		"text": "GitHub"
-	},
-	{
-		"url": "/blog/",
-		"text": "Blog"
 	}
 ]

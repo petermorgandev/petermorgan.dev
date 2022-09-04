@@ -17,8 +17,13 @@ const firstThreePosts = posts.slice(0,3);
 <BaseLayout {description}>
 	<div class="container">
 		<div class="row justify-content-center">
+			<div class="col-12 col-lg-8 col-xl-6">
+				<h1 class="mb-5">Peter Morgan</h1>
+			</div>
+		</div>
+		<div class="row justify-content-center">
 			<section aria-label="Blog post list" class="col-12 col-lg-8 col-xl-6">
-				<h2 class="mb-5">Blog</h2>
+				<h2 class="mb-3">Blog</h2>
 				{firstThreePosts.map(post => <BlogPostPreview data={post} /> )}
 			</section>
 		</div>
