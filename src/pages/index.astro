@@ -6,12 +6,9 @@ let description = "Hi. I'm Peter Morgan. Welcome to my small corner of the inter
 
 const unsortedPosts = await Astro.glob("../data/blog-posts/*.md");
 const posts = unsortedPosts.sort(function (a, b) {
-	return (
-		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
-	);
+	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
 });
-const firstThreePosts = posts.slice(0,3);
-
+const firstThreePosts = posts.slice(0, 3);
 ---
 
 <BaseLayout {description}>
@@ -24,7 +21,7 @@ const firstThreePosts = posts.slice(0,3);
 		<div class="row justify-content-center">
 			<section aria-label="Blog post list" class="col-12 col-lg-8 col-xl-6">
 				<h2 class="mb-3">Blog</h2>
-				{firstThreePosts.map(post => <BlogPostPreview data={post} /> )}
+				{firstThreePosts.map((post) => <BlogPostPreview data={post} />)}
 			</section>
 		</div>
 		<div class="row justify-content-center">
@@ -32,8 +29,7 @@ const firstThreePosts = posts.slice(0,3);
 				<h2 class="mb-3">Portfolio</h2>
 				<h3><a href="https://thedjpodcast.com">TheDJPodcast.com</a></h3>
 				<ul class="mb-4">
-					<li>Produced over 250 video tutorials on DJ'ing and music production for YouTube channel with
-						over 25,000 subscribers and 4.7 million video views</li>
+					<li>Produced over 250 video tutorials on DJ'ing and music production for YouTube channel with over 25,000 subscribers and 4.7 million video views</li>
 					<li>Developed WordPress theme with custom course catalog</li>
 				</ul>
 				<h3><a href="https://github.com/DFortun81/ATT-Classic">All the Things - Classic</a></h3>

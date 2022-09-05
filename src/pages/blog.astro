@@ -8,12 +8,8 @@ let description = "The perfect starter for your perfect blog.";
 // Use Astro.glob to fetch all post with associated frontmatter
 const unsortedPosts = await Astro.glob("../data/blog-posts/*.md");
 const posts = unsortedPosts.sort(function (a, b) {
-	return (
-		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
-	);
+	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
 });
-
-
 ---
 
 <BaseLayout {title} {description}>
@@ -21,7 +17,7 @@ const posts = unsortedPosts.sort(function (a, b) {
 		<div class="row justify-content-center">
 			<section aria-label="Blog post list" class="col-12 col-lg-8 col-xl-6">
 				<h2 class="mb-5">Blog</h2>
-				{posts.map(post => <BlogPostPreview data={post} /> )}
+				{posts.map((post) => <BlogPostPreview data={post} />)}
 			</section>
 		</div>
 	</div>

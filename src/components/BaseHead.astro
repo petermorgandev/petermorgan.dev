@@ -11,6 +11,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title: propsTitle, description } = Astro.props;
 
 let metaTitle = propsTitle ? `${propsTitle} - Peter Morgan - Website Developer` : 'Peter Morgan - Website Developer';
+
+const openGraphImage = 'https://astro.build/social.png';
 ---
 
 <meta charset="utf-8" />
@@ -24,13 +26,13 @@ let metaTitle = propsTitle ? `${propsTitle} - Peter Morgan - Website Developer` 
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content="https://astro.build/social.png" />
+<meta property="og:image" content={openGraphImage} />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={metaTitle} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content="https://astro.build/social.png" />
+<meta property="twitter:image" content={openGraphImage} />
 
 <Favicon />
 
