@@ -5,16 +5,24 @@ const description = data.frontmatter.description;
 const publishDate = data.frontmatter.publishDate;
 const url = data.frontmatter.slug;
 
+const dateOptions:object = {
+	"year" : "numeric",
+	"month" : "long",
+	"day": "numeric"
+};
+const formattedPublishDate = new Date(publishDate).toLocaleDateString('en-US', dateOptions);
+
 const blogDirectory = "blog";
 ---
 
 <article class="post-preview">
 	<header>
-		<time>{publishDate}</time>
 		<a href={`/${blogDirectory}/${url}/`}><h2>{title}</h2></a>
+		<p>
+			<time>{formattedPublishDate}</time>
+		</p>
 	</header>
 	<p>{description}</p>
-	<a href={`/${blogDirectory}/${url}/`}>Read more</a>
 </article>
 
 <style>

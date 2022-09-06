@@ -3,6 +3,14 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 
 const {	data: {title, description, publishDate, modifiedDate} } = Astro.props;
+
+const dateOptions:object = {
+	"year" : "2-digit",
+	"month" : "numeric",
+	"day": "numeric"
+};
+const formattedPublishDate = new Date(publishDate).toLocaleDateString('en-US', dateOptions);
+const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString('en-US', dateOptions);
 ---
 
 <html>
@@ -17,9 +25,9 @@ const {	data: {title, description, publishDate, modifiedDate} } = Astro.props;
 				<div class="col-12 col-lg-8 col-xl-6">
 					<article class="wrapper content">
 						<h1 class="title">{title}</h1>
-						<p>Posted on: <time>{publishDate}</time></p>
+						<p>Posted on: <time>{formattedPublishDate}</time></p>
 						{modifiedDate && (
-							<p>Last Updated on: <time>{modifiedDate}</time></p>
+							<p>Last Updated on: <time>{formattedModifiedDate}</time></p>
 						)}
 						<main>
 							<slot></slot>
