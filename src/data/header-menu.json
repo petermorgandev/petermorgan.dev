@@ -6,17 +6,5 @@
 	{
 		"url": "/blog/",
 		"text": "Blog"
-	},
-	{
-		"url": "mailto:peter@petermorgan.dev",
-		"text": "Email"
-	},
-	{
-		"url": "https://www.linkedin.com/in/petermorgandev",
-		"text": "LinkedIn"
-	},
-	{
-		"url": "https://github.com/PeterMorganDev",
-		"text": "GitHub"
 	}
 ]
