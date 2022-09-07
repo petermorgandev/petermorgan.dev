@@ -10,9 +10,8 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title: propsTitle, description } = Astro.props;
 
-let metaTitle = propsTitle ? `${propsTitle} - Peter Morgan - Website Developer` : 'Peter Morgan - Website Developer';
-
-const openGraphImage = 'https://astro.build/social.png';
+const metaTitle = propsTitle ? `${propsTitle} - Peter Morgan - Website Developer` : 'Peter Morgan - Website Developer';
+const openGraphImage = 'https://petermorgan.dev/open-graph/open-graph-image-dark-1200x600px.png';
 ---
 
 <meta charset="utf-8" />
@@ -27,6 +26,8 @@ const openGraphImage = 'https://astro.build/social.png';
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={openGraphImage} />
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
