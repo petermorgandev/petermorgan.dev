@@ -15,14 +15,35 @@ const posts = unsortedPosts.sort(function (a, b) {
 <BaseLayout {title} {description}>
 	<div class="container">
 		<div class="row justify-content-center">
-			<section aria-label="Blog post list" class="col-12 col-lg-8 col-xl-6">
-				<h2 class="mb-5">Blog</h2>
+			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8">
+				<h1 class="mb-5 text-center">Blog</h1>
+				<p class="fs-2 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do </p>
+				<p class="singleBlogTags mb-6r text-center"><a href="#0">#css</a> <a href="#0">#php</a> <a href="#0">#javascript</a></p>
+			</div>
+			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8 mb-5">
 				{posts.map((post) => <BlogPostPreview data={post} />)}
 			</section>
 		</div>
 	</div>
 </BaseLayout>
 
-<style>
+<style lang="scss">
+	h1 {
+		text-align: center;
+		text-transform: uppercase;
+		line-height: 1;
+		margin-bottom: 3rem;
+		padding-right: 1rem;
+		padding-left: 1rem;
+		width: max-content;
+		box-shadow: inset 0 -0.5em 0 #868b9f;
+	}
 
+	.singleBlogTags a {
+		text-decoration-style: none;
+
+		&:hover {
+			text-decoration-style: underline;
+		}
+	}
 </style>

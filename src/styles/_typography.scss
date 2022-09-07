@@ -7,16 +7,22 @@ body {
 	line-height: 1.25;
 }
 
-h1 {
+h1,
+.fs-1 {
 	font-size: 4rem;
+}
+
+h1 {
 	font-weight: 600;
 }
 
-h2 {
+h2,
+.fs-2 {
 	font-size: 3rem;
 }
 
-h3 {
+h3,
+.fs-3 {
 	font-size: 2rem;
 }
 

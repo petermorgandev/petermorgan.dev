@@ -1,8 +1,19 @@
+html {
+	height: 100%;
+}
+
 body {
 	background-color: $color-gray;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	line-height: 1.5;
 }
 
 .bg-blue {
 	background-color: $color-blue;
+}
+
+.mb-6r {
+	margin-bottom: 6rem;
 }

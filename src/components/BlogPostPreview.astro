@@ -15,34 +15,28 @@ const formattedPublishDate = new Date(publishDate).toLocaleDateString('en-US', d
 const blogDirectory = "blog";
 ---
 
-<article class="post-preview">
+<article class="post-preview mb-5">
 	<header>
-		<a href={`/${blogDirectory}/${url}/`}><h2>{title}</h2></a>
-		<p>
+		<h2 class="mb-3"><a href={`/${blogDirectory}/${url}/`}>{title}</a></h2>
+		<p class="mb-3">
 			<time>{formattedPublishDate}</time>
 		</p>
 	</header>
-	<p>{description}</p>
+	<p class="">{description}</p>
 </article>
 
-<style>
-	.post-preview {
-		margin-bottom: 2rem;
+<style lang="scss">
+	h2 {
+		font-weight: 600;
 	}
 
-	.title,
-	time {
-		margin: 0;
-	}
+	a {
+		color: #172149;
+		text-decoration: none;
 
-	time {
-		font-size: 1.25rem;
-		color: var(--theme-text-lighter);
-	}
-
-	.title {
-		font-size: 2.25rem;
-		font-weight: 700;
-		color: var(--theme-text);
+		&:hover {
+			color: #172149;
+			text-decoration: underline;
+		}
 	}
 </style>

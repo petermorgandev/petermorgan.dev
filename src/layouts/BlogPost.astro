@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const {	data: {title, description, publishDate, modifiedDate} } = Astro.props;
 
@@ -19,26 +20,51 @@ const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString('en-US',
 	</head>
 
 	<body>
-		<Header />
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-12 col-lg-8 col-xl-6">
-					<article class="wrapper content">
-						<h1 class="title">{title}</h1>
-						<p>Posted on: <time>{formattedPublishDate}</time></p>
-						{modifiedDate && (
-							<p>Last Updated on: <time>{formattedModifiedDate}</time></p>
-						)}
-						<main>
+		<div class="page-wrapper">
+			<Header />
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-10 col-xl-8">
+						<h1>{title}</h1>
+						<p class="text-center mb-4">
+							{publishDate && (
+								<strong>Posted on: </strong> <time>{formattedPublishDate}</time>
+							)}
+							{modifiedDate && (
+								<strong>Last Updated on: </strong> <time>{formattedModifiedDate}</time>
+							)}
+						</p>
+						<p class="singleBlogTags"><a href="#0">Tag Here</a>, <a href="#0">Tag Here</a>, <a href="#0">Tag Here</a></p>
+						<div class="singleBlogContent no-margin-last-element">
 							<slot></slot>
-						</main>
-					</article>
+						</div>
+						<p class="mb-6r text-center"><a href="/blog/" class=" text-black">Back to Blog</a></p>
+					</div>
 				</div>
 			</div>
 		</div>
+		<Footer />
 	</body>
 </html>
 
-<style>
+<style lang="scss">
+	h1 {
+		text-align: center;
+		text-transform: uppercase;
+		line-height: 1;
+		margin-bottom: 3rem;
+	}
 
+	.singleBlogTags {
+		margin-bottom: 6rem;
+		text-align: center;
+
+		a {
+			color: black;
+		}
+	}
+
+	.singleBlogContent {
+		margin-bottom: 6rem;
+	}
 </style>

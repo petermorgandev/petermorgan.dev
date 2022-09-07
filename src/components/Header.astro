@@ -7,12 +7,12 @@ const currentPath = new URL(Astro.request.url).pathname;
 <header class="bg-blue">
 	<div class="container header-container">
 		<div class="row justify-content-center">
-			<div class="col-12 col-lg-8 col-xl-6 d-flex flex-column">
+			<div class="col-12 col-lg-10 col-xl-8 d-flex flex-column">
 				<ul>
 					{
 						HeaderMenu.map((menuItem) => (
 							<li>
-								<a href={menuItem.url} class={`${currentPath === menuItem.url ? "fw-bold" : ""}`}>{menuItem.text}</a>
+								<a href={menuItem.url} class={`${currentPath === menuItem.url ? "current-page" : ""}`}>{menuItem.text}</a>
 							</li>
 						))
 					}
@@ -25,7 +25,7 @@ const currentPath = new URL(Astro.request.url).pathname;
 <style lang="scss">
 	header {
 		box-shadow: 0 1rem 2rem .1rem rgba(black, 0.1);
-		margin-bottom: 2rem;
+		margin-bottom: 6rem;
 	}
 
 	.header-container {
@@ -53,9 +53,15 @@ const currentPath = new URL(Astro.request.url).pathname;
 
 	a {
 		color: white;
+		text-decoration: none;
 
 		&:hover {
 			color: white;
+			text-decoration: underline;
 		}
+	}
+
+	.current-page {
+		font-weight: 600;
 	}
 </style>

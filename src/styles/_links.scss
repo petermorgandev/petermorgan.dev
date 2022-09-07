@@ -1,14 +1,9 @@
-a,
-a:link,
-a:visited {
-	text-decoration: none;
-
-	main & {
-		color: $color-blue;
-	}
-}
-
-a:hover {
-	text-decoration: underline;
+a {
+	color: black;
+	text-decoration-thickness: 2px;
 	text-underline-offset: .25rem;
+
+	&:hover {
+		color: inherit;
+	}
 }

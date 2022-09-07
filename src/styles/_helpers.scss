@@ -2,3 +2,19 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+
+.no-margin-last-element {
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.page-wrapper {
+	flex-shrink: 0;
+}
+
+pre.astro-code {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	padding: 1rem;
+}
