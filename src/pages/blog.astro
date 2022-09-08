@@ -3,7 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import PostList from "@components/blog/PostList.astro";
 import TagList from "@components/blog/TagList.astro";
 
-const title = "Blog Posts";
+const title = "Blog";
 const description = "Notes, code snippets, and reminders related to website development and technology.";
 
 const getPosts = await Astro.glob("../data/blog-posts/*.md");
