@@ -15,18 +15,28 @@ const firstThreePosts = posts.slice(0, 3);
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-10 col-xl-8">
-				<h1 class="mb-5">Peter Morgan</h1>
+				<h1 class="mb-6r text-center">Peter Morgan</h1>
 			</div>
 		</div>
 		<div class="row justify-content-center">
+			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8">
+				<h2 class="fw-semibold fontsize-h1 mb-5">Blog</h2>
+			</div>
 			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
-				<h2 class="mb-3">Blog</h2>
 				{firstThreePosts.map((post) => <BlogPostPreview data={post} />)}
 			</section>
 		</div>
 	</div>
 </BaseLayout>
 
-<style>
-
+<style lang="scss">
+	h2 {
+		box-shadow: inset 0 -0.5em 0 #868b9f;
+		line-height: 1;
+		padding-right: 1rem;
+		padding-left: 1rem;
+		text-align: center;
+		text-transform: uppercase;
+		width: max-content;
+	}
 </style>

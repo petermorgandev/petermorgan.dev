@@ -7,23 +7,31 @@ body {
 	line-height: 1.25;
 }
 
-h1,
-.fontsize-1 {
-	font-size: 4rem;
-}
-
 h1 {
+	font-size: 4rem;
 	font-weight: 600;
 }
 
-h2,
-.fontsize-h2 {
+h2 {
 	font-size: 3rem;
 }
 
-h3,
-.fontsize-h3 {
+h3 {
 	font-size: 2rem;
+}
+
+.fontsize- {
+	&-h1 {
+		font-size: 4rem;
+	}
+
+	&-h2 {
+		font-size: 3rem;
+	}
+
+	&-h3 {
+		font-size: 2rem;
+	}
 }
 
 h2,
