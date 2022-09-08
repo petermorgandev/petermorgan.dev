@@ -1,9 +1,11 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
 
-const {	data: {title, description, publishDate, modifiedDate} } = Astro.props;
+import TagList from "@components/blog/TagList.astro";
+
+const {	data: {title, description, publishDate, modifiedDate, tags } } = Astro.props;
 
 const dateOptions:object = {
 	"year" : "2-digit",
@@ -34,11 +36,11 @@ const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString('en-US',
 								<strong>Last Updated on: </strong> <time>{formattedModifiedDate}</time>
 							)}
 						</p>
-						<p class="singleBlogTags"><a href="#0">Tag Here</a>, <a href="#0">Tag Here</a>, <a href="#0">Tag Here</a></p>
-						<div class="singleBlogContent no-margin-last-element">
+						<TagList {tags} />
+						<div class="singleBlogContent no-margin-last-element mb-6r">
 							<slot></slot>
 						</div>
-						<p class="mb-6r text-center"><a href="/blog/" class=" text-black">Back to Blog</a></p>
+						<p class="mb-0 text-center"><a href="/blog/" class=" text-black">Back to Blog</a></p>
 					</div>
 				</div>
 			</div>
@@ -53,18 +55,5 @@ const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString('en-US',
 		text-transform: uppercase;
 		line-height: 1;
 		margin-bottom: 3rem;
-	}
-
-	.singleBlogTags {
-		margin-bottom: 6rem;
-		text-align: center;
-
-		a {
-			color: black;
-		}
-	}
-
-	.singleBlogContent {
-		margin-bottom: 6rem;
 	}
 </style>
