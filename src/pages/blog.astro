@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import BlogPostPreview from "@components/BlogPostPreview.astro";
+import PostList from "@components/blog/PostList.astro";
 import TagList from "@components/blog/TagList.astro";
 
 let title = "Blog Posts";
@@ -34,7 +34,7 @@ const allTags = deDupeTags();
 				<TagList tags={allTags} align="center" />
 			</div>
 			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
-				{sortedPosts.map((post) => <BlogPostPreview data={post} />)}
+				{sortedPosts.map((post) => <PostList data={post} />)}
 			</section>
 		</div>
 	</div>
