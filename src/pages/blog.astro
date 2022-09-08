@@ -3,8 +3,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import PostList from "@components/blog/PostList.astro";
 import TagList from "@components/blog/TagList.astro";
 
-let title = "Blog Posts";
-let description = "The perfect starter for your perfect blog.";
+const title = "Blog Posts";
+const description = "Notes, code snippets, and reminders related to website development and technology.";
 
 const getPosts = await Astro.glob("../data/blog-posts/*.md");
 const sortedPosts = getPosts.sort((a, b) => {
