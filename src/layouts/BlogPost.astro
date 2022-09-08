@@ -27,16 +27,20 @@ const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString('en-US',
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 col-lg-10 col-xl-8">
-						<h1>{title}</h1>
-						<p class="text-center mb-4">
-							{publishDate && (
-								<strong>Posted on: </strong> <time>{formattedPublishDate}</time>
-							)}
-							{modifiedDate && (
-								<strong>Last Updated on: </strong> <time>{formattedModifiedDate}</time>
-							)}
-						</p>
-						<TagList {tags} />
+						<div class="singleBlogMeta no-margin-last-element">
+							<h1>{title}</h1>
+							<p class="text-center mb-4">
+								{publishDate && (
+									<strong>Posted on: </strong> <time>{formattedPublishDate}</time>
+								)}
+								{modifiedDate && (
+									<strong>Last Updated on: </strong> <time>{formattedModifiedDate}</time>
+								)}
+							</p>
+							{tags &&
+								<TagList {tags} align="center" />
+							}
+						</div>
 						<div class="singleBlogContent no-margin-last-element mb-6r">
 							<slot></slot>
 						</div>
@@ -50,6 +54,10 @@ const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString('en-US',
 </html>
 
 <style lang="scss">
+	.singleBlogContent {
+		margin-top: 6rem;
+	}
+
 	h1 {
 		text-align: center;
 		text-transform: uppercase;
