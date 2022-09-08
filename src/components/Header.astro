@@ -1,7 +1,6 @@
 ---
 import HeaderMenu from "@data/header-menu.json";
-const currentPath = new URL(Astro.request.url).pathname;
-
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-blue">
@@ -15,7 +14,7 @@ const currentPath = new URL(Astro.request.url).pathname;
 					{
 						HeaderMenu.map((menuItem) => (
 							<li>
-								<a href={menuItem.url} class={`${currentPath === menuItem.url ? "current-page" : ""}`}>{menuItem.text}</a>
+								<a href={menuItem.url} class={`${currentPath == menuItem.url ? "current-page" : ""}`}>{menuItem.text}</a>
 							</li>
 						))
 					}
