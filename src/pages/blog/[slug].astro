@@ -1,22 +1,19 @@
 ---
-import BlogPostLayout from "@layouts/BlogPost.astro" ;
+import BlogPostLayout from "@layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-  let posts = await Astro.glob('../../data/blog-posts/*.md');
-  return posts.map((post) => ({
-    params: { slug: post.frontmatter.slug },
-    props: { postData: post },
-  }));
+	let posts = await Astro.glob("../../data/blog-posts/*.md");
+	return posts.map((post) => ({
+		params: { slug: post.frontmatter.slug },
+		props: { postData: post },
+	}));
 }
 
 const { slug } = Astro.params;
 const { postData } = Astro.props;
-const {
-  Content,
-	frontmatter
-} = postData;
-
+const { Content, frontmatter } = postData;
 ---
-<BlogPostLayout data={frontmatter} >
+
+<BlogPostLayout data={frontmatter}>
 	<Content />
 </BlogPostLayout>

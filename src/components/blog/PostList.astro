@@ -2,33 +2,31 @@
 import TagList from "@components/blog/TagList.astro";
 
 const { data } = Astro.props;
-const title = data.frontmatter.title;
-const description = data.frontmatter.description;
-const publishDate = data.frontmatter.publishDate;
-const url = data.frontmatter.slug;
-const tags = data.frontmatter.tags;
+const { title, description, publishDate, tags, slug: url } = data.frontmatter;
 
-const dateOptions:object = {
-	"year" : "numeric",
-	"month" : "long",
-	"day": "numeric"
+const dateOptions: object = {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
 };
-const formattedPublishDate = new Date(publishDate).toLocaleDateString('en-US', dateOptions);
+
+const formattedPublishDate = new Date(publishDate).toLocaleDateString(
+	"en-US",
+	dateOptions
+);
 
 const blogDirectory = "blog";
 ---
 
 <article class="post-preview no-margin-last-element">
 	<header>
-		<h3 class="fontsize-h2 mb-3"><a href={`/${blogDirectory}/${url}/`}>{title}</a></h3>
-		<p class="mb-3">
-			<time>{formattedPublishDate}</time>
-		</p>
+		<h3 class="fontsize-h2 mb-3">
+			<a href={`/${blogDirectory}/${url}/`}>{title}</a>
+		</h3>
+		<p><time>{formattedPublishDate}</time></p>
 	</header>
 	<p>{description}</p>
-	{tags &&
-		<TagList {tags} />
-	}
+	{tags && <TagList {tags} />}
 </article>
 
 <style lang="scss">
@@ -38,7 +36,8 @@ const blogDirectory = "blog";
 		}
 	}
 
-	h2,h3 {
+	h2,
+	h3 {
 		font-weight: 600;
 	}
 

@@ -1,15 +1,30 @@
 ---
-import ContactLink from '@data/contact-links.json'
+import ContactLink from "@data/contact-links.json";
 ---
 
 <a href={ContactLink.github.url}>
-	<img src={ContactLink.github.image} alt="GitHub icon" width="62" height="62">
+	<img
+		src={ContactLink.github.image}
+		alt="GitHub icon"
+		width="62"
+		height="62"
+	/>
 </a>
 <a href={ContactLink.linkedin.url}>
-	<img src={ContactLink.linkedin.image} alt="LinkedIn icon" width="62" height="62">
+	<img
+		src={ContactLink.linkedin.image}
+		alt="LinkedIn icon"
+		width="62"
+		height="62"
+	/>
 </a>
 <a href={ContactLink.email.url}>
-	<img src={ContactLink.email.image} alt="Envelope (Email) icon" width="62" height="62">
+	<img
+		src={ContactLink.email.image}
+		alt="Envelope (Email) icon"
+		width="62"
+		height="62"
+	/>
 </a>
 
 <style lang="scss">
@@ -17,11 +32,11 @@ import ContactLink from '@data/contact-links.json'
 		display: inline-block;
 
 		&:not(:first-of-type) {
-			margin-left: .75rem;
+			margin-left: 0.75rem;
 		}
 	}
 
 	img {
-		width: 36px;		
+		width: 36px;
 	}
 </style>

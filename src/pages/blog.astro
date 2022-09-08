@@ -4,23 +4,27 @@ import PostList from "@components/blog/PostList.astro";
 import TagList from "@components/blog/TagList.astro";
 
 const title = "Blog Posts";
-const description = "Notes, code snippets, and reminders related to website development and technology.";
+const description =
+	"Notes, code snippets, and reminders related to website development and technology.";
 
 const getPosts = await Astro.glob("../data/blog-posts/*.md");
 const sortedPosts = getPosts.sort((a, b) => {
-	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
+	return (
+		new Date(b.frontmatter.publishDate).valueOf() -
+		new Date(a.frontmatter.publishDate).valueOf()
+	);
 });
 
 const deDupeTags = () => {
-	const tagSet = new Set([]);
-	getPosts.forEach(post => {
-		if(post.frontmatter.tags){
-			post.frontmatter.tags.forEach((tag: String) => tagSet.add(tag))
+	const tagSet = new Set();
+	getPosts.forEach((post) => {
+		if (post.frontmatter.tags) {
+			post.frontmatter.tags.forEach((tag: String) => tagSet.add(tag));
 		}
 	});
 	const tagArray = [...tagSet];
 	return tagArray;
-}
+};
 
 const allTags = deDupeTags();
 ---
@@ -28,9 +32,12 @@ const allTags = deDupeTags();
 <BaseLayout {title} {description}>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r">
+			<div
+				class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r">
 				<h1 class="mb-5 text-center">Blog</h1>
-				<h2 class="mb-3 fontsize-h3 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h2>
+				<h2 class="mb-3 fontsize-h3 text-center">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+				</h2>
 				<TagList tags={allTags} align="center" />
 			</div>
 			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">

@@ -1,7 +1,7 @@
 ---
 const { tags, align } = Astro.props;
 const tagsSorted = tags ? tags.sort() : [];
-const ulAlignment = align ? align : 'start';
+const ulAlignment = align ? align : "start";
 ---
 
 <ul class={`text-${ulAlignment}`}>

@@ -1,6 +1,6 @@
 ---
-import Favicon from '@components/head/favicon.astro';
-import '@styles/styles.scss';
+import Favicon from "@components/head/favicon.astro";
+import "@styles/styles.scss";
 
 export interface Props {
 	title: string;
@@ -10,9 +10,14 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title: propsTitle, description: propDescription } = Astro.props;
 
-const metaTitle = propsTitle ? `${propsTitle} - Peter Morgan - Website Developer` : 'Peter Morgan - Website Developer';
-const metaDescription = propDescription ? propDescription : `Hi. I'm Peter Morgan. Welcome to my small corner of the internet.`;
-const openGraphImage = 'https://petermorgan.dev/open-graph/open-graph-image-dark-1200x600px.png';
+const metaTitle = propsTitle
+	? `${propsTitle} - Peter Morgan - Website Developer`
+	: "Peter Morgan - Website Developer";
+const metaDescription = propDescription
+	? propDescription
+	: `Hi. I'm Peter Morgan. Welcome to my small corner of the internet.`;
+const openGraphImage =
+	"https://petermorgan.dev/open-graph/open-graph-image-dark-1200x600px.png";
 ---
 
 <meta charset="utf-8" />
@@ -27,8 +32,8 @@ const openGraphImage = 'https://petermorgan.dev/open-graph/open-graph-image-dark
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={openGraphImage} />
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="600">
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="600" />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
@@ -39,7 +44,13 @@ const openGraphImage = 'https://petermorgan.dev/open-graph/open-graph-image-dark
 <Favicon />
 
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap"
+	rel="stylesheet"
+/>
+<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+/>
