@@ -1,0 +1,30 @@
+---
+const { tags } = Astro.props;
+const tagsSorted = tags ? tags.sort() : [];
+---
+
+<ul>
+	{
+		tagsSorted.map((tag: String) => (
+			<li>
+				<a href={`/tag/${tag}/`}>#{tag}</a>
+			</li>
+		))
+	}
+</ul>
+
+<style lang="scss">
+	ul {
+		margin-bottom: 6rem;
+		padding-left: 0;
+		text-align: center;
+	}
+
+	li {
+		display: inline-block;
+
+		&:not(:first-child) {
+			margin-left: 1rem;
+		}
+	}
+</style>
