@@ -4,8 +4,7 @@ import PostList from "@components/blog/PostList.astro";
 import TagList from "@components/blog/TagList.astro";
 
 const title = "Blog Posts";
-const description =
-	"Notes, code snippets, and reminders related to website development and technology.";
+const description = "Notes, code snippets, and reminders related to website development and technology.";
 
 const getPosts = await Astro.glob("../data/blog-posts/*.md");
 const sortedPosts = getPosts.sort((a, b) => {
@@ -15,18 +14,13 @@ const sortedPosts = getPosts.sort((a, b) => {
 	);
 });
 
-const deDupeTags = () => {
-	const tagSet = new Set();
-	getPosts.forEach((post) => {
-		if (post.frontmatter.tags) {
-			post.frontmatter.tags.forEach((tag: String) => tagSet.add(tag));
-		}
-	});
-	const tagArray = [...tagSet];
-	return tagArray;
-};
-
-const allTags = deDupeTags();
+const tagSet = new Set();
+getPosts.forEach((post) => {
+	if (post.frontmatter.tags) {
+		post.frontmatter.tags.forEach((tag: String) => tagSet.add(tag));
+	}
+});
+const tagArray = [...tagSet];
 ---
 
 <BaseLayout title={title} description={description}>
@@ -35,10 +29,8 @@ const allTags = deDupeTags();
 			<div
 				class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r">
 				<h1 class="mb-5 text-center">Blog</h1>
-				<h2 class="mb-3 fontsize-h3 text-center">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-				</h2>
-				<TagList tags={allTags} align="center" />
+				<h2 class="mb-5 fontsize-h3 text-center">Notes, code snippets, and reminders related to website development and technology.</h2>
+				<TagList tags={tagArray} align="center" />
 			</div>
 			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
 				{sortedPosts.map((post) => <PostList data={post} />)}
