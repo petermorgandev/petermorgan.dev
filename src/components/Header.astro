@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
 					{
 						HeaderMenu.map((menuItem) => (
 							<li>
-								<a href={menuItem.url} class={`${currentPath == menuItem.url ? "current-page" : ""}`}>{menuItem.text}</a>
+								<a href={menuItem.url} class={`${currentPath === menuItem.url ? "current-page" : ""}`}>{menuItem.text}</a>
 							</li>
 						))
 					}
