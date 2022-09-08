@@ -1,9 +1,12 @@
 ---
+import TagList from "@components/blog/TagList.astro";
+
 const { data } = Astro.props;
 const title = data.frontmatter.title;
 const description = data.frontmatter.description;
 const publishDate = data.frontmatter.publishDate;
 const url = data.frontmatter.slug;
+const tags = data.frontmatter.tags;
 
 const dateOptions:object = {
 	"year" : "numeric",
@@ -15,17 +18,26 @@ const formattedPublishDate = new Date(publishDate).toLocaleDateString('en-US', d
 const blogDirectory = "blog";
 ---
 
-<article class="post-preview mb-5">
+<article class="post-preview no-margin-last-element">
 	<header>
 		<h2 class="mb-3"><a href={`/${blogDirectory}/${url}/`}>{title}</a></h2>
 		<p class="mb-3">
 			<time>{formattedPublishDate}</time>
 		</p>
 	</header>
-	<p class="">{description}</p>
+	<p>{description}</p>
+	{tags &&
+		<TagList {tags} />
+	}
 </article>
 
 <style lang="scss">
+	.post-preview {
+		&:not(:last-child) {
+			margin-bottom: 3rem;
+		}
+	}
+
 	h2 {
 		font-weight: 600;
 	}
