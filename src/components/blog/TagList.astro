@@ -1,9 +1,10 @@
 ---
-const { tags } = Astro.props;
+const { tags, align } = Astro.props;
 const tagsSorted = tags ? tags.sort() : [];
+const ulAlignment = align ? align : 'start';
 ---
 
-<ul>
+<ul class={`text-${ulAlignment}`}>
 	{
 		tagsSorted.map((tag: String) => (
 			<li>
@@ -15,9 +16,8 @@ const tagsSorted = tags ? tags.sort() : [];
 
 <style lang="scss">
 	ul {
-		margin-bottom: 6rem;
+		margin-bottom: 0;
 		padding-left: 0;
-		text-align: center;
 	}
 
 	li {
