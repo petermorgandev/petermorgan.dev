@@ -12,36 +12,27 @@ export async function getStaticPaths() {
 		);
 	});
 
-	const allCategoriesUnique = new Set();
+	const tagSet = new Set();
+
 	sortedPosts.forEach((post) => {
-		post.frontmatter.tags &&
+		if (post.frontmatter.tags) {
 			post.frontmatter.tags.map((category: String) => {
-				allCategoriesUnique.add(category);
+				tagSet.add(category);
 			});
+		}
 	});
 
-	function generateCategoryData(categories) {
-		let categoryData = [];
-		categories.forEach((category) => {
-			categoryData.push({
-				name: category,
-				slug: category,
-			});
-		});
-		return categoryData;
-	}
+	const tagArray = [...tagSet];
 
-	const allCategoriesData = generateCategoryData(allCategoriesUnique);
-
-	return allCategoriesData.map((category) => {
+	return tagArray.map((tag) => {
 		const posts = sortedPosts.filter((post) =>
-			post.frontmatter.tags.includes(category.name)
+			post.frontmatter.tags.includes(tag)
 		);
 		return {
-			params: { slug: category.slug },
+			params: { slug: tag },
 			props: {
-				tag: category.name,
-				posts: posts,
+				tag,
+				posts,
 			},
 		};
 	});
