@@ -2,8 +2,6 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PostList from "@components/blog/PostList.astro";
 
-let description = "Hi. I'm Peter Morgan. Welcome to my small corner of the internet.";
-
 const unsortedPosts = await Astro.glob("../data/blog-posts/*.md");
 const posts = unsortedPosts.sort(function (a, b) {
 	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
@@ -11,7 +9,7 @@ const posts = unsortedPosts.sort(function (a, b) {
 const firstThreePosts = posts.slice(0, 3);
 ---
 
-<BaseLayout {description}>
+<BaseLayout>
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-10 col-xl-8">
