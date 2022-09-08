@@ -1,0 +1,30 @@
+---
+const { tags, align } = Astro.props;
+const tagsSorted = tags ? tags.sort() : [];
+const ulAlignment = align ? align : 'start';
+---
+
+<ul class={`text-${ulAlignment}`}>
+	{
+		tagsSorted.map((tag: String) => (
+			<li>
+				<a href={`/tag/${tag}/`}>#{tag}</a>
+			</li>
+		))
+	}
+</ul>
+
+<style lang="scss">
+	ul {
+		margin-bottom: 0;
+		padding-left: 0;
+	}
+
+	li {
+		display: inline-block;
+
+		&:not(:first-child) {
+			margin-left: 1rem;
+		}
+	}
+</style>

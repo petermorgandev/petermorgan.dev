@@ -1,27 +1,40 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPostPreview from "@components/BlogPostPreview.astro";
+import TagList from "@components/blog/TagList.astro";
 
 let title = "Blog Posts";
 let description = "The perfect starter for your perfect blog.";
 
-// Use Astro.glob to fetch all post with associated frontmatter
-const unsortedPosts = await Astro.glob("../data/blog-posts/*.md");
-const posts = unsortedPosts.sort(function (a, b) {
+const getPosts = await Astro.glob("../data/blog-posts/*.md");
+const sortedPosts = getPosts.sort((a, b) => {
 	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
 });
+
+const deDupeTags = () => {
+	const tagSet = new Set([]);
+	getPosts.forEach(post => {
+		if(post.frontmatter.tags){
+			post.frontmatter.tags.forEach((tag: String) => tagSet.add(tag))
+		}
+	});
+	const tagArray = [...tagSet];
+	return tagArray;
+}
+
+const allTags = deDupeTags();
 ---
 
 <BaseLayout {title} {description}>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8">
+			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r">
 				<h1 class="mb-5 text-center">Blog</h1>
-				<p class="fs-2 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do </p>
-				<p class="singleBlogTags mb-6r text-center"><a href="#0">#css</a> <a href="#0">#php</a> <a href="#0">#javascript</a></p>
+				<p class="fs-2 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+				<TagList tags={allTags} align="center" />
 			</div>
-			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8 mb-5">
-				{posts.map((post) => <BlogPostPreview data={post} />)}
+			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
+				{sortedPosts.map((post) => <BlogPostPreview data={post} />)}
 			</section>
 		</div>
 	</div>
@@ -37,13 +50,5 @@ const posts = unsortedPosts.sort(function (a, b) {
 		padding-left: 1rem;
 		width: max-content;
 		box-shadow: inset 0 -0.5em 0 #868b9f;
-	}
-
-	.singleBlogTags a {
-		text-decoration-style: none;
-
-		&:hover {
-			text-decoration-style: underline;
-		}
 	}
 </style>
