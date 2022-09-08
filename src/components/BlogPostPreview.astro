@@ -20,7 +20,7 @@ const blogDirectory = "blog";
 
 <article class="post-preview no-margin-last-element">
 	<header>
-		<h2 class="mb-3"><a href={`/${blogDirectory}/${url}/`}>{title}</a></h2>
+		<h3 class="fontsize-h2 mb-3"><a href={`/${blogDirectory}/${url}/`}>{title}</a></h3>
 		<p class="mb-3">
 			<time>{formattedPublishDate}</time>
 		</p>
@@ -38,7 +38,7 @@ const blogDirectory = "blog";
 		}
 	}
 
-	h2 {
+	h2,h3 {
 		font-weight: 600;
 	}
 
