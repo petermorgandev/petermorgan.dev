@@ -5,12 +5,12 @@ import Footer from "@components/Footer.astro";
 
 import TagList from "@components/blog/TagList.astro";
 
-const {	data: {title, description, publishDate, modifiedDate, tags } } = Astro.props;
+const {	data: { title, description, publishDate, modifiedDate, tags } } = Astro.props;
 
 const dateOptions:object = {
-	"year" : "2-digit",
-	"month" : "numeric",
-	"day": "numeric"
+	year: "2-digit",
+	month : "numeric",
+	day: "numeric"
 };
 const formattedPublishDate = new Date(publishDate).toLocaleDateString('en-US', dateOptions);
 const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString('en-US', dateOptions);
