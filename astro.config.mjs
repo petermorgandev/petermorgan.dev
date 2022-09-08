@@ -5,6 +5,7 @@ export default defineConfig({
 	trailingSlash: 'always',
 	markdown: {
     shikiConfig: {
+			theme: 'dark-plus',
 			wrap: true
     },
   },
