@@ -14,30 +14,15 @@ const firstThreePosts = posts.slice(0, 3);
 <BaseLayout {description}>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-12 col-lg-8 col-xl-6">
+			<div class="col-12 col-lg-10 col-xl-8">
 				<h1 class="mb-5">Peter Morgan</h1>
 			</div>
 		</div>
 		<div class="row justify-content-center">
-			<section aria-label="Blog post list" class="col-12 col-lg-8 col-xl-6">
+			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
 				<h2 class="mb-3">Blog</h2>
 				{firstThreePosts.map((post) => <BlogPostPreview data={post} />)}
 			</section>
-		</div>
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-8 col-xl-6">
-				<h2 class="mb-3">Portfolio</h2>
-				<h3><a href="https://thedjpodcast.com">TheDJPodcast.com</a></h3>
-				<ul class="mb-4">
-					<li>Produced over 250 video tutorials on DJ'ing and music production for YouTube channel with over 25,000 subscribers and 4.7 million video views</li>
-					<li>Developed WordPress theme with custom course catalog</li>
-				</ul>
-				<h3><a href="https://github.com/DFortun81/ATT-Classic">All the Things - Classic</a></h3>
-				<ul class="mb-4">
-					<li>Contribute to open source game addon for World of Warcraft: Classic</li>
-					<li>Provide user support and project issue tracking</li>
-				</ul>
-			</div>
 		</div>
 	</div>
 </BaseLayout>
