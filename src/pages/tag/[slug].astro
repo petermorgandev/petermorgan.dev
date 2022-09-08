@@ -3,48 +3,59 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import BlogPostPreview from "@components/BlogPostPreview.astro";
 
 export async function getStaticPaths() {
-  const getPosts = await Astro.glob("../../data/blog-posts/*.md");
-  const sortedPosts = getPosts.sort((a, b) => {
-	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
-});
-  const allCategoriesUnique = new Set();
-  sortedPosts.forEach(post => {
-    post.frontmatter.tags && post.frontmatter.tags.map(category => {
-      allCategoriesUnique.add(category);
-    })
-  })
+	const getPosts = await Astro.glob("../../data/blog-posts/*.md");
+	const sortedPosts = getPosts.sort((a, b) => {
+		return (
+			new Date(b.frontmatter.publishDate).valueOf() -
+			new Date(a.frontmatter.publishDate).valueOf()
+		);
+	});
+	const allCategoriesUnique = new Set();
+	sortedPosts.forEach((post) => {
+		post.frontmatter.tags &&
+			post.frontmatter.tags.map((category:String) => {
+				allCategoriesUnique.add(category);
+			});
+	});
 	function generateCategoryData(categories) {
-  let categoryData = [];
-  categories.forEach((category) => {
-    categoryData.push({
-      name: category,
-      slug: category,
-    });
-  });
-  return categoryData;
-}
-  const allCategoriesData = generateCategoryData(allCategoriesUnique);
-  return allCategoriesData.map((category) => {
-    const posts = sortedPosts.filter((post) => post.frontmatter.tags.includes(category.name))
-      return {
-      params: {slug: category.slug}, 
-      props: {
-        tag: category.name, 
-        posts: posts
-      }
-    };
-  });
+		let categoryData = [];
+		categories.forEach((category) => {
+			categoryData.push({
+				name: category,
+				slug: category,
+			});
+		});
+		return categoryData;
+	}
+	const allCategoriesData = generateCategoryData(allCategoriesUnique);
+	return allCategoriesData.map((category) => {
+		const posts = sortedPosts.filter((post) =>
+			post.frontmatter.tags.includes(category.name)
+		);
+		return {
+			params: { slug: category.slug },
+			props: {
+				tag: category.name,
+				posts: posts,
+			},
+		};
+	});
 }
 
-const {tag, posts} = Astro.props;
+const { tag, posts } = Astro.props;
 ---
 
-<BaseLayout title={`Tag: ${tag}`} description={`A collection of ${tag}-related blog posts.`}>
+<BaseLayout
+	title={`Tag: ${tag}`}
+	description={`A collection of ${tag}-related blog posts.`}>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r">
+			<div
+				class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r">
 				<h1 class="mb-5 text-center">Tag: {tag}</h1>
-				<h2 class="fontsize-h3 text-center">A collection of {tag}-related blog posts.</h2>
+				<h2 class="fontsize-h3 text-center">
+					A collection of {tag}-related blog posts.
+				</h2>
 			</div>
 			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
 				{posts.map((post) => <BlogPostPreview data={post} />)}
