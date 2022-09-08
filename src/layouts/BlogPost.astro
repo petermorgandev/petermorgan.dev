@@ -1,5 +1,5 @@
 ---
-import BaseHead from "@components/BaseHead.astro";
+import HeadContent from "@components/head/HeadContent.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 
@@ -18,7 +18,7 @@ const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString('en-US',
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<HeadContent title={title} description={description} />
 	</head>
 
 	<body>
