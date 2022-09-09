@@ -24,6 +24,9 @@ const firstThreePosts = posts.slice(0, 3);
 			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
 				{firstThreePosts.map((post) => <PostList data={post} />)}
 			</section>
+			<div class="col-12 col-lg-10 col-xl-8">
+				<a href="/blog/" class="mt-5 mb-6r custombtn">View All Blog Posts</a>
+			</div>
 		</div>
 	</div>
 </BaseLayout>
