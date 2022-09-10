@@ -1,15 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import PostList from "@components/blog/PostList.astro";
+import BlogPosts from "@components/homepage/homepageBlogPosts.astro";
 
-const unsortedPosts = await Astro.glob("../data/blog-posts/*.md");
-const posts = unsortedPosts.sort(function (a, b) {
-	return (
-		new Date(b.frontmatter.publishDate).valueOf() -
-		new Date(a.frontmatter.publishDate).valueOf()
-	);
-});
-const firstThreePosts = posts.slice(0, 3);
 ---
 
 <BaseLayout>
@@ -21,12 +13,7 @@ const firstThreePosts = posts.slice(0, 3);
 			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8">
 				<h2 class="fw-semibold fontsize-h1 mb-5">Blog</h2>
 			</div>
-			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
-				{firstThreePosts.map((post) => <PostList data={post} />)}
-			</section>
-			<div class="col-12 col-lg-10 col-xl-8">
-				<p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
-			</div>
+			<BlogPosts />
 		</div>
 	</div>
 </BaseLayout>
@@ -40,10 +27,5 @@ const firstThreePosts = posts.slice(0, 3);
 		text-align: center;
 		text-transform: uppercase;
 		width: max-content;
-	}
-
-	p {
-		margin-top: 3rem;
-		margin-bottom: 0;
 	}
 </style>

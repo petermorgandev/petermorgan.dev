@@ -1,0 +1,28 @@
+---
+import PostList from "@components/blog/PostList.astro";
+
+const unsortedPosts = await Astro.glob("../../data/blog-posts/*.md");
+
+const posts = unsortedPosts.sort(function (a, b) {
+	return (
+		new Date(b.frontmatter.publishDate).valueOf() -
+		new Date(a.frontmatter.publishDate).valueOf()
+	);
+});
+
+const firstThreePosts = posts.slice(0, 3);
+---
+
+<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
+	{firstThreePosts.map((post) => <PostList data={post} />)}
+</section>
+<div class="col-12 col-lg-10 col-xl-8">
+	<p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
+</div>
+
+<style>
+	p {
+		margin-top: 3rem;
+		margin-bottom: 0;
+	}
+</style>
