@@ -1,6 +1,6 @@
 ---
-title: How to Format Dates in Astro
-slug: format-blog-post-dates-astro
+title: Format Dates in Astro
+slug: format-dates-astro
 description: Blog post publication dates on this site are stored in 1 format, but displayed in 2 formats. This post explains how that works.
 publishDate: 9/9/22
 tags: [javascript, astro]
@@ -12,4 +12,4 @@ The design mockups for this website show the blog post publication dates in Mont
 
 ## The Solution
 
-This is where JavaScript and the `toLocaleDateString()` method comes in.
+This is where JavaScript and the `toLocaleDateString()` method comes in - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString">MDN docs</a>. This method is a given date into the locale (language)
