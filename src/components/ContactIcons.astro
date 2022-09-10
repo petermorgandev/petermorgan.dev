@@ -1,26 +1,27 @@
 ---
-import ContactLink from "@data/contact-links.json";
+import ContactLinks from "@data/contact-links.json";
+const iconsDirectoryBase = "/components/contact-icons/";
 ---
 
-<a href={ContactLink.github.url}>
+<a href={ContactLinks.github.url}>
 	<img
-		src={ContactLink.github.image}
+		src={iconsDirectoryBase + ContactLinks.github.image}
 		alt="GitHub icon"
 		width="62"
 		height="62"
 	/>
 </a>
-<a href={ContactLink.linkedin.url}>
+<a href={ContactLinks.linkedin.url}>
 	<img
-		src={ContactLink.linkedin.image}
+		src={iconsDirectoryBase + ContactLinks.linkedin.image}
 		alt="LinkedIn icon"
 		width="62"
 		height="62"
 	/>
 </a>
-<a href={ContactLink.email.url}>
+<a href={ContactLinks.email.url}>
 	<img
-		src={ContactLink.email.image}
+		src={iconsDirectoryBase + ContactLinks.email.image}
 		alt="Envelope (Email) icon"
 		width="62"
 		height="62"
