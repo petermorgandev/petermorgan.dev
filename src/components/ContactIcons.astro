@@ -8,8 +8,8 @@ const { mode } = Astro.props;
 {
 	ContactLinks.map((contactLink) => (
 		<a href={contactLink.url}>
-			</a>
 			<img src={iconDirectoryBase + contactLink.image[mode]} alt={contactLink.image.altText} width={iconDimension} height={iconDimension} />
+		</a>
 	))
 }
 
