@@ -1,14 +1,26 @@
-{
-	"github": {
-		"image": "github-62x62px.png",
-		"url": "https://github.com/PeterMorganDev"
+[
+	{
+		"url": "https://github.com/PeterMorganDev",
+		"image": {
+			"light": "github-light-62x62px.png",
+			"dark": "github-light-62x62px.png",
+			"altText": "GitHub icon"
+		}
 	},
-	"linkedin": {
-		"image": "linkedin-62x62px.png",
-		"url": "https://www.linkedin.com/in/petermorgandev"
+	{
+		"url": "https://www.linkedin.com/in/petermorgandev",
+		"image": {
+			"light": "linkedin-light-62x62px.png",
+			"dark": "linkedin-light-62x62px.png",
+			"altText": "LinkedIn icon"
+		}
 	},
-	"email": {
-		"image": "email-62x62px.png",
-		"url": "mailto:peter@petermorgan.dev"
+	{
+		"url": "mailto:peter@petermorgan.dev",
+		"image": {
+			"light": "email-light-62x62px.png",
+			"dark": "email-light-62x62px.png",
+			"altText": "Envelope (email me) icon"
+		}
 	}
-}
+]
