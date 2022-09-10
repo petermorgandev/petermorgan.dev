@@ -25,7 +25,7 @@ const firstThreePosts = posts.slice(0, 3);
 				{firstThreePosts.map((post) => <PostList data={post} />)}
 			</section>
 			<div class="col-12 col-lg-10 col-xl-8">
-				<a href="/blog/" class="mt-5 mb-6r custombtn">View All Blog Posts</a>
+				<p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
 			</div>
 		</div>
 	</div>
@@ -40,5 +40,10 @@ const firstThreePosts = posts.slice(0, 3);
 		text-align: center;
 		text-transform: uppercase;
 		width: max-content;
+	}
+
+	p {
+		margin-top: 3rem;
+		margin-bottom: 0;
 	}
 </style>
