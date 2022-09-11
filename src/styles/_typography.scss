@@ -2,46 +2,49 @@ body {
 	color: black;
 	font-family: $font-special;
 	font-size: 1.125rem;
-	font-weight: 400;
+	font-weight: $fw-normal;
 	letter-spacing: 0.025em;
 }
 
 h1 {
-	font-size: 4rem;
-	font-weight: 600;
+	font-size: $fs-h1-desktop;
+	font-weight: $fw-bold;
 }
 
 h2 {
-	font-size: 3rem;
+	font-size: $fs-h2-desktop;
+	font-weight: $fw-bold;
 }
 
 h3 {
-	font-size: 2rem;
+	font-size: $fs-h3-desktop;
+	font-weight: $fw-normal;
 }
 
 .fontsize {
 	&-h1 {
-		font-size: 4rem;
+		font-size: $fs-h1-desktop;
 	}
 
 	&-h2 {
-		font-size: 3rem;
+		font-size: $fs-h2-desktop;
 	}
 
 	&-h3 {
-		font-size: 2rem;
+		font-size: $fs-h3-desktop;
 	}
 }
 
-h2,
-h3 {
-	font-weight: 400;
+small,
+.small {
+	font-size: .75rem;
 }
 
 .small-heading {
 	font-size: 1.25rem;
+	font-weight: $fw-normal;
 }
 
 strong {
-	font-weight: 600;
+	font-weight: $fw-bold;
 }
