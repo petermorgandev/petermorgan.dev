@@ -1,5 +1,13 @@
 .singleBlogContent {
 	h2 {
+		font-weight: 600;
 		margin-bottom: 1rem;
+	}
+
+	span[title] {
+		text-decoration-line: underline;
+		text-decoration-style: dotted;
+		text-decoration-thickness: 2px;
+		text-underline-position: under;
 	}
 }

@@ -1,0 +1,52 @@
+---
+import PostList from "@components/blog/PostList.astro";
+
+const unsortedPosts = await Astro.glob("../../data/blog-posts/*.md");
+
+const posts = unsortedPosts.sort(function (a, b) {
+	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
+});
+
+const firstThreePosts = posts.slice(0, 3);
+---
+
+<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8">
+	<h2><span class="smallerText">Most Recent</span> <span class="biggerText">Blog Posts</span></h2>
+</div>
+<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
+	{firstThreePosts.map((post) => <PostList data={post} />)}
+</section>
+<div class="col-12 col-lg-10 col-xl-8">
+	<p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
+</div>
+
+<style lang="scss">
+	h2 {
+		line-height: 1;
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+
+	.smallerText {
+		display: block;
+		font-size: 1.25rem;
+		font-weight: 400;
+		margin-bottom: 1rem;
+	}
+
+	.biggerText {
+		box-shadow: inset 0 -0.5em 0 #868b9f;
+		display: block;
+		font-size: 4rem;
+		font-weight: 600;
+		padding-right: 1rem;
+		padding-left: 1rem;
+		text-transform: uppercase;
+		width: max-content;
+	}
+
+	p {
+		margin-top: 3rem;
+		margin-bottom: 0;
+	}
+</style>

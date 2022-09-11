@@ -12,20 +12,20 @@ tags: [javascript, nodejs, npm]
 - Create a package.json file: `npm init`
 - Run npm in a production environment: `NODE_ENV=production npm install`
 
-## Install a package
+## Install a Package
 
 - Install local package: `npm install <package_name>`
 - Install global package: `npm install <package_name> -g`
 - Install local package and save as dependency: `npm install <package_name> --save`
 - Install local package and save as a development dependency: `npm install <package_name> --save-dev`
 
-## Update a package
+## Update a Package
 
 - Check for outdated packages: `npm outdated`
 - Update local package: `npm update`
 - Update global package: `npm update <package name> -g`
 
-## Uninstall a package
+## Uninstall a Package
 
 - Uninstall a local package: `npm uninstall <package name>`
 - Uninstall a local package and keep it in package.json: `npm uninstall <package name> --no-save`

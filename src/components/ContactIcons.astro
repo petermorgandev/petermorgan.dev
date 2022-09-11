@@ -1,31 +1,18 @@
 ---
-import ContactLink from "@data/contact-links.json";
+import ContactLinks from "@data/contact-links.json";
+const iconDimension = "62";
+const iconDirectoryBase = "/components/contact-icons/";
+const { mode } = Astro.props;
 ---
 
-<a href={ContactLink.github.url}>
-	<img
-		src={ContactLink.github.image}
-		alt="GitHub icon"
-		width="62"
-		height="62"
-	/>
-</a>
-<a href={ContactLink.linkedin.url}>
-	<img
-		src={ContactLink.linkedin.image}
-		alt="LinkedIn icon"
-		width="62"
-		height="62"
-	/>
-</a>
-<a href={ContactLink.email.url}>
-	<img
-		src={ContactLink.email.image}
-		alt="Envelope (Email) icon"
-		width="62"
-		height="62"
-	/>
-</a>
+{
+	ContactLinks.map((contactLink) => (
+		<a href={contactLink.url}>
+			<img src={iconDirectoryBase + contactLink.image[mode]} alt={contactLink.image.altText} width={iconDimension} height={iconDimension} />
+		</a>
+	))
+}
+
 
 <style lang="scss">
 	a {
