@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const title="About"
+const description = "description"
+
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-10 col-xl-8">
+				<h1>{title}</h1>
+				<div class="no-margin-last-element">
+					<h2>License</h2>
+					<p>The <a href="https://github.com/petermorgandev/petermorgan.dev">source code for this website</a> is available on GitHub and can be used for your own project as long as you do not claim my content as your own. Improvements can be suggested by <a href="https://github.com/petermorgandev/petermorgan.dev/issues">creating an issue</a>.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<style lang="scss">
+	h1 {
+		text-align: center;
+		text-transform: uppercase;
+		line-height: 1;
+		margin-bottom: 6rem;
+	}
+</style>
