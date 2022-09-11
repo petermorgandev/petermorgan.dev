@@ -3,6 +3,7 @@ title: "Changelog: September 2022"
 slug: changelog-2022-september
 description: As fall quickly approaches it is time to check in on what I am currently working on and learning about.
 publishDate: 9/10/22
+modifiedDate: 9/11/22
 tags: [astro, changelog, github]
 ---
 
@@ -19,3 +20,4 @@ Even though I have used GitHub <span title="I created my account in 2016, but on
 - Host this website on GitHub Pages with a custom domain name
 - Configure a GitHub Action to deploy changes when commits are pushed
 - [Automatically link commits](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#commit-shas) in issue comments
+- Set branch protection rules to prevent commits directly to main branch
