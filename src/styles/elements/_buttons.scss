@@ -2,9 +2,13 @@
 	border-radius: 0;
 	border: $line-thickness solid $color-body;
 	display: inline-block;
-	padding: .75rem 1.5rem;
+	padding: .5rem .75rem;
 	text-decoration: none;
 	text-transform: uppercase;
+
+	@media screen and (min-width: $breakpoint-sm) {
+		padding: .75rem 1.5rem;
+	}
 
 	&:hover {
 		background-color: $color-blue;
