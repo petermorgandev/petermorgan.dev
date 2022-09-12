@@ -1,0 +1,9 @@
+a {
+	color: $color-body;
+	text-decoration-thickness: $line-thickness;
+	text-underline-position: under;
+
+	&:hover {
+		color: inherit;
+	}
+}

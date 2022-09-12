@@ -21,6 +21,8 @@ const firstThreePosts = posts.slice(0, 3);
 </div>
 
 <style lang="scss">
+	@import "../../styles/base/_variables.scss";
+
 	h2 {
 		line-height: 1;
 		margin-bottom: 3rem;
@@ -28,21 +30,25 @@ const firstThreePosts = posts.slice(0, 3);
 	}
 
 	.smallerText {
-		display: block;
-		font-size: 1.25rem;
-		font-weight: 400;
-		margin-bottom: 1rem;
+		@media screen and (min-width: $breakpoint-sm) {
+			display: block;
+			font-size: 1.25rem;
+			font-weight: $fw-normal;
+			margin-bottom: 1rem;
+		}
 	}
 
 	.biggerText {
-		box-shadow: inset 0 -0.5em 0 #868b9f;
-		display: block;
-		font-size: 4rem;
-		font-weight: 600;
-		padding-right: 1rem;
-		padding-left: 1rem;
-		text-transform: uppercase;
-		width: max-content;
+		@media screen and (min-width: $breakpoint-sm) {
+			box-shadow: inset 0 -0.5em 0 #868b9f;
+			display: block;
+			font-size: 4rem;
+			font-weight: $fw-bold;
+			padding-right: 1rem;
+			padding-left: 1rem;
+			text-transform: uppercase;
+			width: max-content;
+		}
 	}
 
 	p {

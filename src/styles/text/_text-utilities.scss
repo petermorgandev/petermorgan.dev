@@ -1,0 +1,19 @@
+.fontsize {
+	&-h1 {
+		@media screen and (min-width: $breakpoint-sm) {
+			font-size: $fs-h1-desktop;
+		}
+	}
+
+	&-h2 {
+		@media screen and (min-width: $breakpoint-sm) {
+			font-size: $fs-h2-desktop;
+		}
+	}
+
+	&-h3 {
+		@media screen and (min-width: $breakpoint-sm) {
+			font-size: $fs-h3-desktop;
+		}
+	}
+}

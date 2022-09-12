@@ -10,10 +10,7 @@ const dateOptions: object = {
 	day: "numeric",
 };
 
-const formattedPublishDate = new Date(publishDate).toLocaleDateString(
-	"en-US",
-	dateOptions
-);
+const formattedPublishDate = new Date(publishDate).toLocaleDateString("en-US", dateOptions);
 
 const blogDirectory = "blog";
 ---
@@ -30,9 +27,17 @@ const blogDirectory = "blog";
 </article>
 
 <style lang="scss">
+	@import "../../styles/base/_variables.scss";
+
 	.post-preview {
 		&:not(:last-child) {
 			margin-bottom: 3rem;
+		}
+	}
+
+	h3 {
+		@media screen and (min-width: $breakpoint-sm) {
+			font-size: 2rem;
 		}
 	}
 
@@ -42,11 +47,11 @@ const blogDirectory = "blog";
 	}
 
 	a {
-		color: #172149;
+		color: $color-blue;
 		text-decoration: none;
 
 		&:hover {
-			color: #172149;
+			color: $color-blue;
 			text-decoration: underline;
 		}
 	}

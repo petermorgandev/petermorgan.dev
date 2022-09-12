@@ -1,0 +1,20 @@
+body {
+	color: $color-body;
+	font-family: $font-special;
+	font-weight: $fw-normal;
+	letter-spacing: 0.025em;
+	line-height: 1.5;
+
+	@media screen and (min-width: $breakpoint-sm) {
+		font-size: $fs-body-desktop;
+	}
+}
+
+small,
+.small {
+	font-size: $fs-small-desktop;
+}
+
+strong {
+	font-weight: $fw-bold;
+}

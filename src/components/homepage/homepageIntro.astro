@@ -3,20 +3,22 @@ import ContactIcons from "../ContactIcons.astro";
 ---
 
 <div class="col-12 col-lg-10 col-xl-8 mb-6r text-center position-relative">
-	<img src="/components/homepageIntro/wordmark-circle-rotated-navy-50percentopacity-173x173px.png" alt="PM wordmark in circle rotated at an angle" class="wordmark" />
+	<img src="/components/homepageIntro/wordmark-circle-rotated-navy-50percentopacity-173x173px.png" alt="PM wordmark in circle rotated at an angle" class="wordmark d-none d-sm-block" />
 	<h1>
 		<span class="start">Hi, I'm</span>
 		<span class="middle">Peter Morgan</span>
 		<span class="end">Web Developer</span>
 	</h1>
 
-	<p class="mb-4 px-md-4">Solving technical problems and writing code by day. <a href="https://djpetermorgan.com">Mixing electronic music</a>, playing computer/tabletop <a href="https://toukana.com/dorfromantik/" title="This links to the homepage for Dorformantik: a great indie game for PC (and soon Nintendo Switch) that I have played recently.">games</a>, and <a href="/tag/changelog/">lifelong learner</a> by night. Welcome to my small corner of the internet.</p>
+	<p class="mb-4 px-md-4">Solving technical problems and writing code by day. <a href="https://djpetermorgan.com">Mixing electronic music</a>, playing computer/tabletop <a href="https://toukana.com/dorfromantik/" title="This links to the homepage for Dorformantik: a great indie game for PC (and soon Nintendo Switch) that I have played recently.">games</a>, and <a href="/tag/changelog/" title="Blog posts tagged with Changelog highlighting what I am working on and learning about.">lifelong learner</a> by night. Welcome to my small corner of the internet.</p>
 	<p class="mb-0">
 		<ContactIcons mode="dark" />
 	</p>
 </div>
 
 <style lang="scss">
+	@import "../../styles/base/_variables.scss";
+
 	.wordmark {
 		position: absolute;
 		top: -60px;
@@ -33,7 +35,6 @@ import ContactIcons from "../ContactIcons.astro";
 	.middle,
 	.end {
 		display: block;
-		line-height: 1;
 	}
 
 	.start,
@@ -41,17 +42,28 @@ import ContactIcons from "../ContactIcons.astro";
 		margin-bottom: 1rem;
 	}
 
-	.start,
-	.end {
-		font-size: 3rem;
-	}
-
 	.middle {
-		font-size: 5rem;
 		text-transform: uppercase;
 	}
 
 	.end {
 		font-weight: 400;
+	}
+
+	@media screen and (min-width: $breakpoint-md) {
+		.start,
+		.middle,
+		.end {
+			line-height: 1;
+		}
+
+		.start,
+		.end {
+			font-size: 3rem;
+		}
+
+		.middle {
+			font-size: 5rem;
+		}
 	}
 </style>
