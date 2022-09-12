@@ -1,0 +1,19 @@
+h1 {
+	font-size: $fs-h1-desktop;
+	font-weight: $fw-bold;
+}
+
+h2 {
+	font-size: $fs-h2-desktop;
+	font-weight: $fw-bold;
+}
+
+h3 {
+	font-size: $fs-h3-desktop;
+	font-weight: $fw-normal;
+}
+
+.small-heading {
+	font-size: 1.25rem;
+	font-weight: $fw-normal;
+}
