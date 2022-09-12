@@ -21,3 +21,9 @@ Even though I have used GitHub <span title="I created my account in 2016, but on
 - Configure a GitHub Action to deploy changes when commits are pushed
 - [Automatically link commits](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#commit-shas) in issue comments
 - Set branch protection rules to prevent commits directly to main branch
+
+## Markdown
+
+Markdown is implemented in seemingly everything I am interested in these days. [Obsidian](https://obsidian.md) - a personal knowledge base (second brain) application that I recently started using - stores all of its files in Markdown. Astro uses [Markdown](https://docs.astro.build/en/guides/markdown-content/) and [MDX](https://mdxjs.com) to create pages like the one you're on right now.
+
+I already knew the basics of Markdown - like formatting headings and adding links to text - but never needed to use the more advanced features. For example, my blog post on [Sass Variables in Astro Components](/blog/sass-variables-in-astro-components/) uses footnotes. The ability to put the footnote anywhere in the file is convenient, but I can't decide whether or not I like breaking up the flow of the content. Thankfully the output on the blog post won't change if I decide to move all of the footnotes to the bottom of the file.
