@@ -1,16 +1,6 @@
-a {
-	color: black;
-	text-decoration-thickness: 2px;
-	text-underline-position: under;
-
-	&:hover {
-		color: inherit;
-	}
-}
-
 .custombtn {
 	border-radius: 0;
-	border: 2px solid black;
+	border: $line-thickness solid $color-body;
 	display: inline-block;
 	padding: .75rem 1.5rem;
 	text-decoration: none;
@@ -18,7 +8,7 @@ a {
 
 	&:hover {
 		background-color: $color-blue;
-		border: 2px solid $color-blue;
+		border: $line-thickness solid $color-blue;
 		color: white;
 	}
 }

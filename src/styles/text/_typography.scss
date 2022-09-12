@@ -1,9 +1,10 @@
 body {
-	color: black;
+	color: $color-body;
 	font-family: $font-special;
-	font-size: 1.125rem;
+	font-size: $fs-body-desktop;
 	font-weight: $fw-normal;
 	letter-spacing: 0.025em;
+	line-height: 1.5;
 }
 
 h1 {
