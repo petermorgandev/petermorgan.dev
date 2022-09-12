@@ -1,0 +1,15 @@
+.footnotes {
+	margin-top: 2rem;
+
+	ol {
+		li:last-child {
+			> :last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.data-footnote-backref {
+		text-decoration: none;
+	}
+}
