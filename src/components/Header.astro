@@ -7,8 +7,8 @@ const currentPath = Astro.url.pathname;
 <header class="bg-blue">
 	<div class="container header-container">
 		<div class="row justify-content-center">
-			<div class="col-12 col-lg-10 col-xl-8 d-flex justify-content-between align-items-center">
-				<a href="/">
+			<div class="col-12 col-lg-10 col-xl-8 d-flex flex-column flex-sm-row justify-content-between align-items-center">
+				<a href="/" class="mb-4 mb-sm-0">
 					<img src={wordmark} alt="Word mark: Letters PM inside a circle." width="173" height="173">
 				</a>
 				<ul>
@@ -26,6 +26,8 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <style lang="scss">
+@import "../styles/base/_variables.scss";
+
 	header {
 		box-shadow: 0 1rem 2rem .1rem rgba(black, 0.1);
 		margin-bottom: 6rem;
@@ -68,6 +70,6 @@ const currentPath = Astro.url.pathname;
 	}
 
 	.current-page {
-		font-weight: 600;
+		font-weight: $fw-bold;
 	}
 </style>
