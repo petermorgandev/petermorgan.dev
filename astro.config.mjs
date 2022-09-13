@@ -5,7 +5,7 @@ export default defineConfig({
 	trailingSlash: 'always',
 	markdown: {
 		remarkRehype: {
-			footnoteLabelTagName: "h3",
+			footnoteLabelTagName: "h2",
 			footnoteLabelProperties: {
 				className: ["visually-hidden"]
 			}
