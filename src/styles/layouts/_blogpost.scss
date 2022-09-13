@@ -9,5 +9,9 @@
 		text-decoration-style: dotted;
 		text-decoration-thickness: $line-thickness;
 		text-underline-position: under;
+
+		&:hover {
+			cursor: help;
+		}
 	}
 }
