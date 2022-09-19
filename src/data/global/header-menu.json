@@ -6,5 +6,9 @@
 	{
 		"url": "/blog/",
 		"text": "Blog"
+	},
+	{
+		"url": "/portfolio/",
+		"text": "Portfolio"
 	}
 ]
