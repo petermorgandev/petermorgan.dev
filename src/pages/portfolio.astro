@@ -1,0 +1,42 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ProjectList from "@components/portfolio/ProjectList.astro";
+
+const title = "Portfolio";
+const description = "Examples of my work.";
+
+const getPosts = await Astro.glob("../data/portfolio-projects/*.md");
+const sortedPosts = getPosts.sort((a, b) => {
+	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
+});
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r text-center">
+				<h1 class="mb-5">{title}</h1>
+				<h2 class="mb-5 fontsize-h3">{description}</h2>
+			</div>
+			<section aria-label="Portfolio project list" class="col-12 col-lg-10 col-xl-8">
+				{sortedPosts.map((post) => <ProjectList data={post} />)}
+			</section>
+		</div>
+	</div>
+</BaseLayout>
+
+<style lang="scss">
+	@import "../styles/base/_variables.scss";
+
+	h1 {
+		text-transform: uppercase;
+
+		@media screen and (min-width: $breakpoint-sm) {
+			box-shadow: inset 0 -0.5em 0 #868b9f;
+			line-height: 1;
+			padding-right: 1rem;
+			padding-left: 1rem;
+			width: max-content;
+		}
+	}
+</style>

@@ -1,0 +1,56 @@
+---
+const { data } = Astro.props;
+const { title, description, projectStatus, slug: url } = data.frontmatter;
+
+const portfolioDirectory = "portfolio";
+---
+
+<article class="post-preview no-margin-last-element col-12 col-md-6">
+	<header>
+		<img src="https://picsum.photos/1600/900" alt={`Project screenshot of ${title}`} class="mb-3">
+		<h3 class="mb-3">
+			<a href={`/${portfolioDirectory}/${url}/`}>{title}</a>
+		</h3>
+		<p><time>Project Status: {projectStatus}</time></p>
+	</header>
+	<p>{description}</p>
+</article>
+
+<style lang="scss">
+	@import "../../styles/base/_variables.scss";
+
+	.post-preview {
+		&:not(:last-child) {
+			@media screen and (max-width: 767px) {
+				margin-bottom: 3rem;
+			}
+		}
+
+		&:not(:nth-last-child(-n+2)) {
+			@media screen and (min-width: $breakpoint-md) {
+				margin-bottom: 3rem;
+			}
+		}
+	}
+
+	h3 {
+		@media screen and (min-width: $breakpoint-sm) {
+			font-size: 2rem;
+		}
+	}
+
+	h2,
+	h3 {
+		font-weight: 600;
+	}
+
+	a {
+		color: $color-blue;
+		text-decoration: none;
+
+		&:hover {
+			color: $color-blue;
+			text-decoration: underline;
+		}
+	}
+</style>

@@ -1,0 +1,52 @@
+---
+import HeadContent from "@components/head/HeadContent.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+const {	data: { title, description, projectStatus } } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<HeadContent {title} {description} />
+	</head>
+
+	<body>
+		<div class="page-wrapper flex-shrink-0">
+			<Header />
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-10 col-xl-8">
+						<img src="https://picsum.photos/1600/900" alt={`Project screenshot of ${title}`} class="mb-6r" />
+						<div class="singleBlogMeta no-margin-last-element">
+							<h1>{title}</h1>
+							<p class="text-center">
+								{projectStatus && (
+									<strong>Project Status: </strong> <time>{projectStatus}</time>
+								)}
+							</p>
+						</div>
+						<div class="singleBlogContent no-margin-last-element mb-6r">
+							<slot></slot>
+						</div>
+						<p class="mb-0 text-center"><a href="/portfolio/" class=" text-black">Back to Portfolio</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>
+
+<style lang="scss">
+	.singleBlogContent {
+		margin-top: 6rem;
+	}
+
+	h1 {
+		text-align: center;
+		text-transform: uppercase;
+		line-height: 1;
+		margin-bottom: 3rem;
+	}
+</style>
