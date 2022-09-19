@@ -1,0 +1,19 @@
+---
+import PortfolioProjectLayout from "@layouts/PortfolioProject.astro";
+
+export async function getStaticPaths() {
+	let posts = await Astro.glob("../../data/portfolio-projects/*.md");
+	return posts.map((post) => ({
+		params: { slug: post.frontmatter.slug },
+		props: { postData: post },
+	}));
+}
+
+const { slug } = Astro.params;
+const { postData } = Astro.props;
+const { Content, frontmatter } = postData;
+---
+
+<PortfolioProjectLayout data={frontmatter}>
+	<Content />
+</PortfolioProjectLayout>
