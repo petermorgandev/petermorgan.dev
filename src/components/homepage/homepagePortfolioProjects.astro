@@ -1,0 +1,70 @@
+---
+import ProjectList from "@components/portfolio/ProjectList.astro";
+
+const unsortedPosts = await Astro.glob("../../data/portfolio-projects/*.md");
+
+const posts = unsortedPosts.sort((a, b) => {
+	return (
+		new Date(b.frontmatter.publishDate).valueOf() -
+		new Date(a.frontmatter.publishDate).valueOf()
+	);
+});
+
+const firstFourPosts = posts.slice(0, 4);
+---
+
+<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 mt-6r">
+	<h2>
+		<span class="smallerText">Explore My</span>
+		<span class="biggerText">Portfolio</span>
+	</h2>
+</div>
+<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
+	<div class="row">
+		{firstFourPosts.map((post) => <ProjectList data={post} />)}
+	</div>
+</section>
+<div class="col-12 col-lg-10 col-xl-8">
+	<p><a href="/portfolio/" class="custombtn">View All Portfolio Projects</a></p>
+</div>
+
+<style lang="scss">
+	@import "../../styles/base/_variables.scss";
+
+	.mt-6r {
+		margin-top: 6rem;
+	}
+
+	h2 {
+		line-height: 1;
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+
+	.smallerText {
+		@media screen and (min-width: $breakpoint-sm) {
+			display: block;
+			font-size: 1.25rem;
+			font-weight: $fw-normal;
+			margin-bottom: 1rem;
+		}
+	}
+
+	.biggerText {
+		@media screen and (min-width: $breakpoint-sm) {
+			box-shadow: inset 0 -0.5em 0 #868b9f;
+			display: block;
+			font-size: 4rem;
+			font-weight: $fw-bold;
+			padding-right: 1rem;
+			padding-left: 1rem;
+			text-transform: uppercase;
+			width: max-content;
+		}
+	}
+
+	p {
+		margin-top: 3rem;
+		margin-bottom: 0;
+	}
+</style>
