@@ -2,13 +2,17 @@
 import ContactLinks from "@data/global/contact-links.json";
 const iconDimension = "62";
 const iconDirectoryBase = "/images/components/contact-icons/";
-const { mode } = Astro.props;
+export interface Props {
+	mode: string;
+	lazy?: boolean;
+}
+const { mode, lazy } = Astro.props;
 ---
 
 {
 	ContactLinks.map((contactLink) => (
 		<a href={contactLink.url}>
-			<img src={iconDirectoryBase + contactLink.image[mode]} alt={contactLink.image.altText} width={iconDimension} height={iconDimension} />
+			<img src={iconDirectoryBase + contactLink.image[mode]} alt={contactLink.image.altText} width={iconDimension} height={iconDimension} loading={lazy ? 'lazy' : 'eager'} />
 		</a>
 	))
 }
