@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const title="404 Error"
+const description = "The file or page you are trying to access cannot be found."
+
+---
+
+<BaseLayout title={title} description={description}>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-lg-10 col-xl-8">
+				<h1>{title}</h1>
+				<div class="no-margin-last-element text-center">
+					<p>The file or page you are trying to access cannot be found.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<style lang="scss">
+	h1 {
+		text-align: center;
+		text-transform: uppercase;
+		line-height: 1;
+		margin-bottom: 6rem;
+	}
+</style>
