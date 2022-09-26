@@ -10,15 +10,13 @@ const posts = unsortedPosts.sort(function (a, b) {
 const firstThreePosts = posts.slice(0, 3);
 ---
 
-<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8">
+<div class="d-flex flex-column align-items-center">
 	<h2><span class="smallerText">Most Recent</span> <span class="biggerText">Blog Posts</span></h2>
 </div>
-<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
-	{firstThreePosts.map((post) => <PostList data={post} />)}
-</section>
-<div class="col-12 col-lg-10 col-xl-8">
-	<p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
-</div>
+{firstThreePosts.map((post) => <PostList data={post} />)}
+
+<p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
+
 
 <style lang="scss">
 	@import "../../styles/base/_variables.scss";

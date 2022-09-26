@@ -1,0 +1,31 @@
+.align {
+	&-items {
+		&-center {
+			align-items: center;
+		}
+	}
+}
+
+.d {
+	&-flex {
+		display: flex;
+	}
+}
+
+.flex {
+	&-column {
+		flex-direction: column;
+	}
+
+	&-row {
+		flex-direction: row;
+	}
+
+	@media screen and (min-width: $breakpoint-sm) {
+		&-sm {
+			&-row {
+				flex-direction: row;
+			}
+		}
+	}
+}
