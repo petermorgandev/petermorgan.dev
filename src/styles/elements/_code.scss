@@ -4,3 +4,12 @@ pre.astro-code {
 	padding: 1rem;
 	tab-size: 2;
 }
+
+p > code {
+	background-color: $color-blue;
+	color: white;
+	font-family: monospace, $font-special;
+	font-size: 0.875rem;
+	padding: 0.125rem 0.25rem;
+	user-select: all;
+}
