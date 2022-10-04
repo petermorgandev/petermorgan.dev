@@ -12,11 +12,16 @@ const { mode, lazy } = Astro.props;
 {
 	ContactLinks.map((contactLink) => (
 		<a href={contactLink.url}>
-			<img src={iconDirectoryBase + contactLink.image[mode]} alt={contactLink.image.altText} width={iconDimension} height={iconDimension} loading={lazy ? 'lazy' : 'eager'} />
+			<img
+				src={iconDirectoryBase + contactLink.image[mode]}
+				alt={contactLink.image.altText}
+				width={iconDimension}
+				height={iconDimension}
+				loading={lazy ? "lazy" : "eager"}
+			/>
 		</a>
 	))
 }
-
 
 <style lang="scss">
 	a {
