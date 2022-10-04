@@ -20,7 +20,7 @@ const blogDirectory = "blog";
 		<h3 class="mb-3">
 			<a href={`/${blogDirectory}/${url}/`}>{title}</a>
 		</h3>
-		<p><time>{formattedPublishDate}</time></p>
+		<p>{formattedPublishDate}</p>
 	</header>
 	<p>{description}</p>
 	{tags && <TagList {tags} />}
