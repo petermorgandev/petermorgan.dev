@@ -8,8 +8,8 @@ import ContactIcons from "@components/ContactIcons.astro";
 			<div class="row justify-content-center">
 				<div class="col-12 col-lg-10 col-xl-8">
 					<h2>Contact Me</h2>
-					<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus v Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
-					<ContactIcons />
+					<p class="mb-4">You can contact me by clicking on the icons below. I will respond - assuming you're not soliciting or spamming me - as soon as I can.</p>
+					<ContactIcons mode="light" lazy={true} />
 				</div>
 			</div>
 		</div>
@@ -25,13 +25,14 @@ import ContactIcons from "@components/ContactIcons.astro";
 		margin-top: 6rem;
 	}
 
+	.footer-container,
+	a {
+		color: white;
+	}
+
 	.footer-container {
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 		color: white;
-	}
-
-	h2 {
-		font-size: 2rem;
 	}
 </style>

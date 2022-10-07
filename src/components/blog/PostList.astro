@@ -10,29 +10,34 @@ const dateOptions: object = {
 	day: "numeric",
 };
 
-const formattedPublishDate = new Date(publishDate).toLocaleDateString(
-	"en-US",
-	dateOptions
-);
+const formattedPublishDate = new Date(publishDate).toLocaleDateString("en-US", dateOptions);
 
 const blogDirectory = "blog";
 ---
 
 <article class="post-preview no-margin-last-element">
 	<header>
-		<h3 class="fontsize-h2 mb-3">
+		<h3 class="mb-3">
 			<a href={`/${blogDirectory}/${url}/`}>{title}</a>
 		</h3>
-		<p><time>{formattedPublishDate}</time></p>
+		<p>{formattedPublishDate}</p>
 	</header>
 	<p>{description}</p>
 	{tags && <TagList {tags} />}
 </article>
 
 <style lang="scss">
+	@import "../../styles/base/_variables.scss";
+
 	.post-preview {
 		&:not(:last-child) {
 			margin-bottom: 3rem;
+		}
+	}
+
+	h3 {
+		@media screen and (min-width: $breakpoint-sm) {
+			font-size: 2rem;
 		}
 	}
 
@@ -42,11 +47,11 @@ const blogDirectory = "blog";
 	}
 
 	a {
-		color: #172149;
+		color: $color-blue;
 		text-decoration: none;
 
 		&:hover {
-			color: #172149;
+			color: $color-blue;
 			text-decoration: underline;
 		}
 	}

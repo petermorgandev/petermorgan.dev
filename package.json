@@ -9,7 +9,8 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "astro": "^1.1.7",
+    "@astrojs/sitemap": "^1.0.0",
+    "astro": "^1.4.3",
     "prettier-plugin-astro": "^0.5.4",
     "sass": "^1.54.5"
   }

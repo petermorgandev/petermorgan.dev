@@ -15,16 +15,24 @@ const ulAlignment = align ? align : "start";
 </ul>
 
 <style lang="scss">
+	@import "../../styles/base/_variables.scss";
+
 	ul {
 		margin-bottom: 0;
 		padding-left: 0;
 	}
 
 	li {
-		display: inline-block;
+		display: block;
+
+		@media screen and (min-width: $breakpoint-sm) {
+			display: inline;
+		}
 
 		&:not(:first-child) {
-			margin-left: 1rem;
+			@media screen and (min-width: $breakpoint-sm) {
+				margin-left: 1rem;
+			}
 		}
 	}
 </style>

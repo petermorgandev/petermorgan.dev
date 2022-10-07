@@ -1,6 +1,5 @@
-@import "variables";
-@import "helpers";
-@import "base";
-@import "fonts";
-@import "typography";
-@import "links";
+@import "base/index";
+@import "utilities/index";
+@import "text/index";
+@import "elements/index";
+@import "layouts/index"

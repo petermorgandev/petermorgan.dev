@@ -1,0 +1,13 @@
+a {
+	color: $color-body;
+	text-decoration-thickness: $line-thickness;
+	text-underline-position: under;
+
+	:where(sup) & {
+		text-decoration: none;
+	}
+
+	&:hover {
+		color: inherit;
+	}
+}

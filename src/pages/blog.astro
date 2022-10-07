@@ -8,10 +8,7 @@ const description = "Notes, code snippets, and reminders related to website deve
 
 const getPosts = await Astro.glob("../data/blog-posts/*.md");
 const sortedPosts = getPosts.sort((a, b) => {
-	return (
-		new Date(b.frontmatter.publishDate).valueOf() -
-		new Date(a.frontmatter.publishDate).valueOf()
-	);
+	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
 });
 
 const tagSet = new Set();
@@ -26,10 +23,9 @@ const tagArray = [...tagSet];
 <BaseLayout title={title} description={description}>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div
-				class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r">
-				<h1 class="mb-5 text-center">Blog</h1>
-				<h2 class="mb-5 fontsize-h3 text-center">Notes, code snippets, and reminders related to website development and technology.</h2>
+			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r text-center">
+				<h1 class="mb-5">Blog</h1>
+				<h2 class="mb-5 fontsize-h3">Notes, code snippets, and reminders related to website development and technology.</h2>
 				<TagList tags={tagArray} align="center" />
 			</div>
 			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
@@ -40,14 +36,17 @@ const tagArray = [...tagSet];
 </BaseLayout>
 
 <style lang="scss">
+	@import "../styles/base/_variables.scss";
+
 	h1 {
-		text-align: center;
 		text-transform: uppercase;
-		line-height: 1;
-		margin-bottom: 3rem;
-		padding-right: 1rem;
-		padding-left: 1rem;
-		width: max-content;
-		box-shadow: inset 0 -0.5em 0 #868b9f;
+
+		@media screen and (min-width: $breakpoint-sm) {
+			box-shadow: inset 0 -0.5em 0 #868b9f;
+			line-height: 1;
+			padding-right: 1rem;
+			padding-left: 1rem;
+			width: max-content;
+		}
 	}
 </style>
