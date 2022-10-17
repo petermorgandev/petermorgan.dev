@@ -6,16 +6,9 @@ import PostList from "@components/blog/PostList.astro";
 export async function getStaticPaths() {
 	const getPosts = await Astro.glob("../../data/blog-posts/*.md");
 
-	const sortedPosts = getPosts.sort((a, b) => {
-		return (
-			new Date(b.frontmatter.publishDate).valueOf() -
-			new Date(a.frontmatter.publishDate).valueOf()
-		);
-	});
-
 	const tagSet = new Set();
 
-	sortedPosts.forEach((post) => {
+	getPosts.forEach((post) => {
 		if (post.frontmatter.tags) {
 			post.frontmatter.tags.map((category: String) => {
 				tagSet.add(category);
@@ -26,9 +19,16 @@ export async function getStaticPaths() {
 	const tagArray = [...tagSet];
 
 	return tagArray.map((tag) => {
-		const posts = sortedPosts.filter((post) =>
-			post.frontmatter.tags.includes(tag)
-		);
+		const unsortedPosts = getPosts.filter((post) => {
+			if (post.frontmatter.tags) {
+				return post.frontmatter.tags.includes(tag);
+			}
+		});
+
+		const posts = unsortedPosts.sort((a, b) => {
+			return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
+		});
+
 		return {
 			params: { slug: tag },
 			props: {
@@ -47,10 +47,9 @@ const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection 
 <BaseLayout title={title} description={description}>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div
-				class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r">
-				<h1 class="mb-5 text-center">{title}</h1>
-				<h2 class="fontsize-h3 text-center">{description}</h2>
+			<div class="col-12 col-lg-10 col-xl-8 no-margin-last-element blog-post-header">
+				<h1>{title}</h1>
+				<h2 class="fontsize-h3">{description}</h2>
 			</div>
 			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
 				{posts.map((post) => <PostList data={post} />)}
@@ -61,6 +60,14 @@ const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection 
 
 <style lang="scss">
 	@import "../../styles/base/_variables.scss";
+
+	.blog-post-header {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 6rem;
+		text-align: center;
+	}
 
 	h1 {
 		text-align: center;
