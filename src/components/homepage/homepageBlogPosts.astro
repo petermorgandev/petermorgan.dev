@@ -3,11 +3,9 @@ import PostList from "@components/blog/PostList.astro";
 
 const unsortedPosts = await Astro.glob("../../data/blog-posts/*.md");
 
-const posts = unsortedPosts.sort(function (a, b) {
+const firstThreePosts = unsortedPosts.sort((a, b) => {
 	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
-});
-
-const firstThreePosts = posts.slice(0, 3);
+}).slice(0, 3);
 ---
 
 <div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8">
