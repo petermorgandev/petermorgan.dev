@@ -1,5 +1,6 @@
 ---
 import TagList from "@components/blog/TagList.astro";
+import { formatDate } from "@js/utils";
 
 const { data } = Astro.props;
 const { title, description, publishDate, tags, slug: url } = data.frontmatter;
@@ -10,7 +11,7 @@ const dateOptions: object = {
 	day: "numeric",
 };
 
-const formattedPublishDate = new Date(publishDate).toLocaleDateString("en-US", dateOptions);
+const formattedPublishDate = formatDate(publishDate, dateOptions);
 
 const blogDirectory = "blog";
 ---
