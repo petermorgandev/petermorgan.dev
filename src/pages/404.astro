@@ -1,9 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 
-const title="404 Error"
-const description = "The file or page you are trying to access cannot be found."
-
+const title = "404 Error";
+const description = "The file or page you are trying to access cannot be found.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -11,9 +10,7 @@ const description = "The file or page you are trying to access cannot be found."
 		<div class="row justify-content-center">
 			<div class="col-12 col-lg-10 col-xl-8">
 				<h1>{title}</h1>
-				<div class="no-margin-last-element text-center">
-					<p>The file or page you are trying to access cannot be found.</p>
-				</div>
+				<p>{description}</p>
 			</div>
 		</div>
 	</div>
@@ -25,5 +22,10 @@ const description = "The file or page you are trying to access cannot be found."
 		text-transform: uppercase;
 		line-height: 1;
 		margin-bottom: 6rem;
+	}
+
+	p {
+		margin-bottom: 0;
+		text-align: center;
 	}
 </style>

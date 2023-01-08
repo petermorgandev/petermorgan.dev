@@ -22,14 +22,14 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 	</head>
 
 	<body>
-		<div class="page-wrapper flex-shrink-0">
+		<div class="page-wrapper">
 			<Header />
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 col-lg-10 col-xl-8">
 						<div class="singleBlogMeta no-margin-last-element">
 							<h1>{title}</h1>
-							<p class="text-center mb-4">
+							<p class="postDate">
 								{publishDate && (
 									<strong>Posted on: </strong> <time>{formattedPublishDate}</time>
 								)}
@@ -44,7 +44,7 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 						<div class="singleBlogContent no-margin-last-element mb-6r">
 							<slot></slot>
 						</div>
-						<p class="mb-0 text-center"><a href="/blog/" class=" text-black">Back to Blog</a></p>
+						<p class="backToBlog"><a href="/blog/" class=" text-black">Back to Blog</a></p>
 					</div>
 				</div>
 			</div>
@@ -63,5 +63,19 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 		text-transform: uppercase;
 		line-height: 1;
 		margin-bottom: 3rem;
+	}
+
+	.backToBlog {
+		margin-bottom: 0;
+		text-align: center;
+	}
+
+	.page-wrapper{
+		flex-shrink: 0;
+	}
+
+	.postDate {
+		margin-bottom: 1.5rem;
+		text-align: center;
 	}
 </style>

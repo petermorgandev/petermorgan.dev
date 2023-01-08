@@ -18,7 +18,7 @@ const blogDirectory = "blog";
 
 <article class="post-preview no-margin-last-element">
 	<header>
-		<h3 class="mb-3">
+		<h3>
 			<a href={`/${blogDirectory}/${url}/`}>{title}</a>
 		</h3>
 		<p>{formattedPublishDate}</p>
@@ -37,6 +37,8 @@ const blogDirectory = "blog";
 	}
 
 	h3 {
+		margin-bottom: 1rem;
+
 		@media screen and (min-width: $breakpoint-sm) {
 			font-size: 2rem;
 		}

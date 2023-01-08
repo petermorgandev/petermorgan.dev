@@ -12,7 +12,7 @@ const { title, description } = Astro.props;
 	</head>
 
 	<body>
-		<div class="page-wrapper flex-shrink-0">
+		<div class="page-wrapper">
 			<Header />
 			<main>
 				<slot />
@@ -21,3 +21,9 @@ const { title, description } = Astro.props;
 		<Footer />
 	</body>
 </html>
+
+<style lang="scss">
+	.page-wrapper{
+		flex-shrink: 0;
+	}
+</style>

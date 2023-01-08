@@ -24,8 +24,8 @@ const tagArray = [...tagSet];
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r text-center">
-				<h1 class="mb-5">Blog</h1>
-				<h2 class="mb-5 fontsize-h3">Notes, code snippets, and reminders related to website development and technology.</h2>
+				<h1>Blog</h1>
+				<h2 class="fontsize-h3">Notes, code snippets, and reminders related to website development and technology.</h2>
 				{tagArray &&
 					<TagList tags={tagArray} align="center" />
 				}
@@ -41,6 +41,7 @@ const tagArray = [...tagSet];
 	@import "../styles/base/_variables.scss";
 
 	h1 {
+		margin-bottom: 3rem;
 		text-transform: uppercase;
 
 		@media screen and (min-width: $breakpoint-sm) {
@@ -50,5 +51,9 @@ const tagArray = [...tagSet];
 			padding-left: 1rem;
 			width: max-content;
 		}
+	}
+
+	h2 {
+		margin-bottom: 3rem;
 	}
 </style>
