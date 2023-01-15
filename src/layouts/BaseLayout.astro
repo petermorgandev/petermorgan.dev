@@ -14,16 +14,10 @@ const { title, description } = Astro.props;
 	<body>
 		<div class="page-wrapper">
 			<Header />
-			<main>
+			<main class="container">
 				<slot />
 			</main>
 		</div>
 		<Footer />
 	</body>
 </html>
-
-<style lang="scss">
-	.page-wrapper{
-		flex-shrink: 0;
-	}
-</style>

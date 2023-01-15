@@ -8,3 +8,21 @@ body {
 	flex-direction: column;
 	height: 100%;
 }
+
+.page-wrapper {
+	flex-shrink: 0;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 0.75rem;
+	padding-left: 0.75rem;
+	width: 100%;
+
+	@media screen and (min-width: $breakpoint-md) {
+		width: 744px;
+	}
+}

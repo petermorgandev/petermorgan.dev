@@ -5,13 +5,9 @@ import ContactIcons from "@components/ContactIcons.astro";
 <footer>
 	<div class="bg-blue">
 		<div class="footer-container container">
-			<div class="row justify-content-center">
-				<div class="col-12 col-lg-10 col-xl-8">
-					<h2>Contact Me</h2>
-					<p>You can contact me by clicking on the icons below. I will respond - assuming you're not soliciting or spamming me - as soon as I can.</p>
-					<ContactIcons mode="light" lazy={true} />
-				</div>
-			</div>
+			<h2>Contact Me</h2>
+			<p>You can contact me by clicking on the icons below. I will respond - assuming you're not soliciting or spamming me - as soon as I can.</p>
+			<ContactIcons mode="light" lazy={true} />
 		</div>
 	</div>
 </footer>
@@ -23,16 +19,16 @@ import ContactIcons from "@components/ContactIcons.astro";
 
 	.bg-blue {
 		margin-top: 6rem;
-	}
-
-	a {
 		color: white;
 	}
 
 	.footer-container {
 		padding-top: 2rem;
 		padding-bottom: 2rem;
-		color: white;
+	}
+
+	h2 {
+		margin-top: 0;
 	}
 
 	p {

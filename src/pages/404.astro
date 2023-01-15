@@ -6,19 +6,18 @@ const description = "The file or page you are trying to access cannot be found."
 ---
 
 <BaseLayout title={title} description={description}>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-10 col-xl-8">
-				<h1>{title}</h1>
-				<p>{description}</p>
-			</div>
-		</div>
-	</div>
+	<h1>{title}</h1>
+	<p>{description}</p>
 </BaseLayout>
 
 <style lang="scss">
-	h1 {
+	div {
+		flex-direction: column;
 		text-align: center;
+	}
+
+	h1 {
+		
 		text-transform: uppercase;
 		line-height: 1;
 		margin-bottom: 6rem;
@@ -26,6 +25,5 @@ const description = "The file or page you are trying to access cannot be found."
 
 	p {
 		margin-bottom: 0;
-		text-align: center;
 	}
 </style>

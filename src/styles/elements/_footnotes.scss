@@ -1,6 +1,10 @@
 .footnotes {
 	margin-top: 2rem;
 
+	> :last-child {
+		margin-bottom: 0;
+	}
+
 	ol {
 		li:last-child {
 			> :last-child {

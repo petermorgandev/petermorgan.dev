@@ -2,8 +2,8 @@
 import ContactIcons from "../ContactIcons.astro";
 ---
 
-<div class="col-12 col-lg-10 col-xl-8 mb-6r text-center position-relative">
-	<img src="/images/components/homepageIntro/wordmark-circle-rotated-navy-50percentopacity-173x173px.png" alt="PM wordmark in circle rotated at an angle" width="100" height="100" class="wordmark d-none d-sm-block" />
+<div>
+	<img src="/images/components/homepageIntro/wordmark-circle-rotated-navy-50percentopacity-173x173px.png" alt="PM wordmark in circle rotated at an angle" width="100" height="100" />
 	<h1>
 		<span class="start">Hi, I'm</span>
 		<span class="middle">Peter Morgan</span>
@@ -17,12 +17,23 @@ import ContactIcons from "../ContactIcons.astro";
 <style lang="scss">
 	@import "../../styles/base/_variables.scss";
 
-	.wordmark {
+	div {
+		margin-bottom: 6rem;
+		position: relative;
+		text-align: center;
+	}
+
+	img {
+		display: none;
 		position: absolute;
 		top: -60px;
 		right: 0;
 		width: 100px;
 		height: 100px;
+
+		@media screen and (min-width: $breakpoint-sm) {
+			display: block;
+		}
 	}
 
 	h1 {

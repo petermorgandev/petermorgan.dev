@@ -5,7 +5,7 @@ pre.astro-code {
 	tab-size: 2;
 }
 
-p > code {
+:not(pre)>code {
 	background-color: $color-blue;
 	color: white;
 	font-family: monospace, $font-special;

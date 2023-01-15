@@ -5,37 +5,49 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-blue">
-	<div class="container header-container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-10 col-xl-8 d-flex flex-column flex-sm-row justify-content-between align-items-center">
-				<a href="/" class="mb-4 mb-sm-0">
-					<img src={wordmark} alt="Word mark: Letters PM inside a circle." width="173" height="173">
-				</a>
-				<ul>
-					{
-						HeaderMenu.map((menuItem) => (
-							<li>
-								<a href={menuItem.url} class={`${currentPath === menuItem.url ? "current-page" : ""}`}>{menuItem.text}</a>
-							</li>
-						))
-					}
-				</ul>
-			</div>
-		</div>
+	<div class="container">
+		<a href="/" class="wordmark-link">
+			<img src={wordmark} alt="Word mark: Letters PM inside a circle." width="173" height="173">
+		</a>
+		<ul>
+			{
+				HeaderMenu.map((menuItem) => (
+					<li>
+						<a href={menuItem.url} class={`${currentPath === menuItem.url ? "current-page" : ""}`}>{menuItem.text}</a>
+					</li>
+				))
+			}
+		</ul>
 	</div>
 </header>
 
 <style lang="scss">
 @import "../styles/base/_variables.scss";
 
+	.wordmark-link {
+		margin-bottom: 1.5rem;
+
+		@media screen and (min-width: $breakpoint-md) {
+			margin-bottom: 0;
+		}
+	}
+
 	header {
 		box-shadow: 0 1rem 2rem .1rem rgba(black, 0.1);
 		margin-bottom: 6rem;
 	}
 
-	.header-container {
+	div {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		padding-top: 2rem;
 		padding-bottom: 2rem;
+
+		@media screen and (min-width: $breakpoint-md) {
+			flex-direction: row;
+		}
 	}
 
 	img {
@@ -44,8 +56,7 @@ const currentPath = Astro.url.pathname;
 
 	ul {
 		list-style: none;
-		margin-bottom: 0;
-		margin-left: 0;
+		margin: 0;
 		padding-left: 0;
 	}
 

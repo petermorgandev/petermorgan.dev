@@ -2,14 +2,15 @@
 	border-radius: 0;
 	border: $line-thickness solid $color-body;
 	display: inline-block;
-	padding: .5rem .75rem;
+	padding: 0.5rem 0.75rem;
 	text-decoration: none;
 	text-transform: uppercase;
 
 	@media screen and (min-width: $breakpoint-sm) {
-		padding: .75rem 1.5rem;
+		padding: 0.75rem 1.5rem;
 	}
 
+	&:focus,
 	&:hover {
 		background-color: $color-blue;
 		border: $line-thickness solid $color-blue;

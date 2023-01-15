@@ -21,20 +21,14 @@ const tagArray = [...tagSet];
 ---
 
 <BaseLayout title={title} description={description}>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="d-flex flex-column align-items-center col-12 col-lg-10 col-xl-8 no-margin-last-element mb-6r text-center">
-				<h1>Blog</h1>
-				<h2 class="fontsize-h3">Notes, code snippets, and reminders related to website development and technology.</h2>
-				{tagArray &&
-					<TagList tags={tagArray} align="center" />
-				}
-			</div>
-			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
-				{sortedPosts.map((post) => <PostList data={post} />)}
-			</section>
-		</div>
+	<div class="intro no-margin-last-element">
+		<h1>Blog</h1>
+		<h2 class="fontsize-h3">Notes, code snippets, and reminders related to website development and technology.</h2>
+		{tagArray &&
+			<TagList tags={tagArray} align="center" />
+		}
 	</div>
+	{sortedPosts.map((post) => <PostList data={post} />)}
 </BaseLayout>
 
 <style lang="scss">
@@ -55,5 +49,13 @@ const tagArray = [...tagSet];
 
 	h2 {
 		margin-bottom: 3rem;
+	}
+
+	.intro {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		margin-bottom: 6rem;
 	}
 </style>

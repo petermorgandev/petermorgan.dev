@@ -25,28 +25,30 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 		<div class="page-wrapper">
 			<Header />
 			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-12 col-lg-10 col-xl-8">
-						<div class="singleBlogMeta no-margin-last-element">
-							<h1>{title}</h1>
-							<p class="postDate">
-								{publishDate && (
+				<div class="singleBlogMeta no-margin-last-element">
+					<h1>{title}</h1>
+					<p class="postDate">
+						{
+							publishDate && (
+								<>
 									<strong>Posted on: </strong> <time>{formattedPublishDate}</time>
-								)}
-								{modifiedDate && (
+								</>
+							)
+						}
+						{
+							modifiedDate && (
+								<>
 									<strong>Last Updated on: </strong> <time>{formattedModifiedDate}</time>
-								)}
-							</p>
-							{tags &&
-								<TagList {tags} align="center" />
-							}
-						</div>
-						<div class="singleBlogContent no-margin-last-element mb-6r">
-							<slot></slot>
-						</div>
-						<p class="backToBlog"><a href="/blog/" class=" text-black">Back to Blog</a></p>
-					</div>
+								</>
+							)
+						}
+					</p>
+					{tags && <TagList {tags} align="center" />}
 				</div>
+				<div class="singleBlogContent no-margin-last-element">
+					<slot />
+				</div>
+				<p class="backToBlog"><a href="/blog/" class="text-black">Back to Blog</a></p>
 			</div>
 		</div>
 		<Footer />
@@ -55,6 +57,7 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 
 <style lang="scss">
 	.singleBlogContent {
+		margin-bottom: 6rem;
 		margin-top: 6rem;
 	}
 
@@ -68,10 +71,6 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 	.backToBlog {
 		margin-bottom: 0;
 		text-align: center;
-	}
-
-	.page-wrapper{
-		flex-shrink: 0;
 	}
 
 	.postDate {

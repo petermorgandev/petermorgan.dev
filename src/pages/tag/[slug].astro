@@ -45,17 +45,11 @@ const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection 
 ---
 
 <BaseLayout title={title} description={description}>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-lg-10 col-xl-8 no-margin-last-element blog-post-header">
-				<h1>{title}</h1>
-				<h2 class="fontsize-h3">{description}</h2>
-			</div>
-			<section aria-label="Blog post list" class="col-12 col-lg-10 col-xl-8">
-				{posts.map((post) => <PostList data={post} />)}
-			</section>
-		</div>
+	<div class="no-margin-last-element blog-post-header">
+		<h1>{title}</h1>
+		<h2 class="fontsize-h3">{description}</h2>
 	</div>
+	{posts.map((post) => <PostList data={post} />)}
 </BaseLayout>
 
 <style lang="scss">
