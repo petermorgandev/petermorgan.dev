@@ -18,7 +18,7 @@ At scale, large quantities of anything can become overwhelming and my bookmarks 
 
 The rate that I was consuming, and therefore deleting afterwards, past bookmarks was never going to match the rate at which I was creating new ones. For example, it takes only a few minutes to visit a YouTube channel for a conference and bookmark 5+ hours worth of panels and presentations.
 
-I felt like something had to done. To my surprise, deciding to delete the majority of the bookmarks was easy.
+I felt like something had to be done. To my surprise, deciding to delete the majority of the bookmarks was easy.
 
 ## The Great Bookmark Purge of October 2023
 
@@ -29,12 +29,12 @@ One evening I devoted a limited amount of time to go through as many bookmarks a
 - Topics that interested me in the past, but do not now.
 - Topics I felt I should learn about even if I wasn't interested in them.
 
-After this realization was I started deleting bookmarks. Sometimes I would delete an entire category or subcategory. In the future if I want/need to learn about a topic I previously had bookmarks for I can try to find the same content again. There will likely be alternatives - perhaps newer and more up to date - if I can't.
+After this realization I started deleting bookmarks. Sometimes I would delete an entire category or subcategory. In the future if I want/need to learn about a topic I previously had bookmarks for I can try to find the same content again. There will likely be alternatives - perhaps newer and more up to date - if I can't.
 
 ## An Opportunity to Specialize
 
 Advancements in web development - and technology in general - are moving faster than any one person can keep up with. This could be viewed negatively: "I will never learn everything." However, I see a positive.
 
-Now is the perfect time to specialize. Figure out what you are interested in and excites you. Focus on learning as much as you can about those topics. For you that might be CSS animations, and accessibility or web components for someone else. Specializing may help you stand out from the crowd when looking for a new job or lead you to find a communities of other like-minded people that share your interests.
+Now is the perfect time to specialize. Figure out what you are interested in and excites you. Focus on learning as much as you can about those topics. For you that might be CSS animations, and accessibility or web components for someone else. Specializing may help you stand out from the crowd when looking for a new job or lead you to find communities of other like-minded people that share your interests.
 
 If nothing else, the time you spend will be more enjoyable than learning about a topic you're not interested in. That is what I am going to do.
