@@ -9,7 +9,7 @@ const firstThreePosts = unsortedPosts.sort((a, b) => {
 ---
 
 <div>
-	<h2><span class="smallerText">Most Recent</span> <span class="biggerText">Blog Posts</span></h2>
+	<h2><span class="smallerText">Most Recent</span>{" "}<span class="biggerText">Blog Posts</span></h2>
 </div>
 
 {firstThreePosts.map((post) => <PostList data={post} />)}
