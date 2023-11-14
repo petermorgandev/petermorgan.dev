@@ -1,6 +1,6 @@
 ---
-title: The Concept of TypeScript is Simple
-slug: the-concept-of-typescript-is-simple
+title: TypeScript, Conceptually
+slug: typescript-conceptually
 description: An introduction to TypeScript and the problem it attempts to solve.
 publishDate: 10/8/23
 tags: [javascript, typescript]
