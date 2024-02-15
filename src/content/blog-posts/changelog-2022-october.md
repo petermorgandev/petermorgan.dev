@@ -1,6 +1,5 @@
 ---
 title: "Changelog: October 2022"
-slug: changelog-2022-october
 description: October was a busy month. Job applications and interviews consumed much of my time. All the time spent was worth it when I accepted an offer for a new job.
 publishDate: 11/27/22
 tags: [career, changelog]

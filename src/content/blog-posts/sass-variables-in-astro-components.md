@@ -1,6 +1,5 @@
 ---
 title: How to Use Sass Variables in Astro Components
-slug: sass-variables-in-astro-components
 description: You can use Sass variables in Astro components even though it may not be a best practice. This blog post explains how.
 publishDate: 9/11/22
 tags: [astro, components, css, sass]

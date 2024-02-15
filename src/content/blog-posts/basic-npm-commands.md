@@ -1,6 +1,5 @@
 ---
 title: Basic NPM Commands
-slug: basic-npm-commands
 description: This blog post - a reference for basic NPM commands - was originally a GitHub Gist.
 publishDate: 4/22/19
 modifiedDate: 9/9/22

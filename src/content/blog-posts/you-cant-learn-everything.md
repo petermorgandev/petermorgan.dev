@@ -1,6 +1,5 @@
 ---
 title: You Can't Learn Everything
-slug: you-cant-learn-everything
 description: Reflecting on how much there is to learn about web development.
 publishDate: 11/10/23
 tags: [career]

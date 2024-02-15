@@ -1,6 +1,5 @@
 ---
 title: Find a Value's Key in a JavaScript Object
-slug: find-a-values-key-in-a-javascript-object
 description: An exercise in breaking down code into smaller, more understandable, parts.
 publishDate: 11/13/23
 tags: [javascript]

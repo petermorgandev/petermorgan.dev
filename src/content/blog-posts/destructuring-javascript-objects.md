@@ -1,6 +1,5 @@
 ---
 title: Destructuring Javascript Objects
-slug: destructuring-javascript-objects
 description: This blog post - a reference for destructuring Javascript objects - was originally a GitHub Gist.
 publishDate: 5/21/19
 tags: [javascript]

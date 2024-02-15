@@ -1,6 +1,5 @@
 ---
 title: Format Blog Post Dates in Astro
-slug: format-blog-post-dates-astro
 description: This post explains how JavaScript simplifies the process of storing blog post publication dates in 1 format and displaying them in 2 formats on my Astro site.
 publishDate: 10/7/22
 tags: [javascript, astro]
@@ -29,10 +28,7 @@ const dateOptions: object = {
 	day: "numeric",
 };
 
-const formattedPublishDate = new Date(publishDate).toLocaleDateString(
-	"en-US",
-	dateOptions
-);
+const formattedPublishDate = new Date(publishDate).toLocaleDateString("en-US", dateOptions);
 ```
 
 ### Individual Blog Post Page Implementation
@@ -44,15 +40,9 @@ const dateOptions: object = {
 	day: "numeric",
 };
 
-const formattedPublishDate = new Date(publishDate).toLocaleDateString(
-	"en-US",
-	dateOptions
-);
+const formattedPublishDate = new Date(publishDate).toLocaleDateString("en-US", dateOptions);
 
-const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString(
-	"en-US",
-	dateOptions
-);
+const formattedModifiedDate = new Date(modifiedDate).toLocaleDateString("en-US", dateOptions);
 ```
 
 ## Inevitable Comparisons

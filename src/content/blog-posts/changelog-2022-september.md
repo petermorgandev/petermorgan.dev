@@ -1,6 +1,5 @@
 ---
 title: "Changelog: September 2022"
-slug: changelog-2022-september
 description: As fall quickly approaches it is time to check in on what I am currently working on and learning about.
 publishDate: 9/10/22
 modifiedDate: 9/11/22
