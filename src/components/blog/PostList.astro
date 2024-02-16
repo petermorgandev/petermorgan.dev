@@ -1,6 +1,6 @@
 ---
+import formatDate from "@utils/formatDate";
 import TagList from "@components/blog/TagList.astro";
-import { formatDate } from "@js/utils";
 
 const { data } = Astro.props;
 const { title, description, publishDate, tags, slug: url } = data.frontmatter;
