@@ -17,12 +17,6 @@ import ContactIcons from "../ContactIcons.astro";
 <style lang="scss">
 	@import "../../styles/base/_variables.scss";
 
-	div {
-		margin-bottom: 6rem;
-		position: relative;
-		text-align: center;
-	}
-
 	img {
 		display: none;
 		position: absolute;
@@ -34,10 +28,6 @@ import ContactIcons from "../ContactIcons.astro";
 		@media screen and (min-width: $breakpoint-sm) {
 			display: block;
 		}
-	}
-
-	h1 {
-		margin-bottom: 3rem;
 	}
 
 	p {
@@ -83,5 +73,17 @@ import ContactIcons from "../ContactIcons.astro";
 		.middle {
 			font-size: 5rem;
 		}
+	}
+</style>
+
+<style>
+	div {
+		margin-bottom: 6rem;
+		position: relative;
+		text-align: center;
+	}
+
+	h1 {
+		margin-bottom: 3rem;
 	}
 </style>
