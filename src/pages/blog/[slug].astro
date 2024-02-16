@@ -26,3 +26,37 @@ const blogMeta = {
 <BlogPostLayout data={blogMeta}>
 	<Content />
 </BlogPostLayout>
+
+<style is:global>
+	pre.astro-code {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		padding: 1rem;
+		tab-size: 2;
+	}
+
+	:not(pre) > code {
+		background-color: var(--color-blue);
+		color: white;
+		font-family: monospace, var(--font-special);
+		font-size: 0.875rem;
+		padding: 0.125rem 0.25rem;
+		user-select: all;
+	}
+
+	.footnotes {
+		margin-top: 2rem;
+	}
+
+	.footnotes > :last-child {
+		margin-bottom: 0;
+	}
+
+	.footnotes li:last-child > :last-child {
+		margin-bottom: 0;
+	}
+
+	.footnotes .data-footnote-backref {
+		text-decoration: none;
+	}
+</style>
