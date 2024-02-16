@@ -3,7 +3,7 @@ import formatDate from "@utils/formatDate";
 import TagList from "@components/blog/TagList.astro";
 
 const { data } = Astro.props;
-const { title, description, publishDate, tags, slug: url } = data.frontmatter;
+const { title, description, publishDate, tags, slug } = data;
 
 const dateOptions: object = {
 	year: "numeric",
@@ -12,14 +12,12 @@ const dateOptions: object = {
 };
 
 const formattedPublishDate = formatDate(publishDate, dateOptions);
-
-const blogDirectory = "blog";
 ---
 
 <article class="post-preview no-margin-last-element">
 	<header>
 		<h3>
-			<a href={`/${blogDirectory}/${url}/`}>{title}</a>
+			<a href={`/blog/${slug}/`}>{title}</a>
 		</h3>
 		<p>{formattedPublishDate}</p>
 	</header>

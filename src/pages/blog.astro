@@ -1,20 +1,21 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 import PostList from "@components/blog/PostList.astro";
 import TagList from "@components/blog/TagList.astro";
 
 const title = "Blog";
 const description = "Notes, code snippets, and reminders related to website development and technology.";
 
-const getPosts = await Astro.glob("../data/blog-posts/*.md");
-const sortedPosts = getPosts.sort((a, b) => {
-	return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
+const unsortedPosts = await getCollection("blog");
+const sortedPosts = unsortedPosts.sort((a, b) => {
+	return new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf();
 });
 
 const tagSet = new Set();
-getPosts.forEach((post) => {
-	if (post.frontmatter.tags) {
-		post.frontmatter.tags.forEach((tag: String) => tagSet.add(tag));
+sortedPosts.forEach((post) => {
+	if (post.data.tags) {
+		post.data.tags.forEach((tag: String) => tagSet.add(tag));
 	}
 });
 const tagArray = [...tagSet];
@@ -24,11 +25,22 @@ const tagArray = [...tagSet];
 	<div class="intro no-margin-last-element">
 		<h1>Blog</h1>
 		<h2 class="fontsize-h3">Notes, code snippets, and reminders related to website development and technology.</h2>
-		{tagArray &&
-			<TagList tags={tagArray} align="center" />
-		}
+		{tagArray && <TagList tags={tagArray} align="center" />}
 	</div>
-	{sortedPosts.map((post) => <PostList data={post} />)}
+
+	{
+		sortedPosts.map((post) => (
+			<PostList
+				data={{
+					title: post.data.title,
+					description: post.data.description,
+					publishDate: post.data.publishDate,
+					tags: post.data.tags,
+					slug: post.slug,
+				}}
+			/>
+		))
+	}
 </BaseLayout>
 
 <style lang="scss">
