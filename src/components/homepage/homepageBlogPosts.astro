@@ -34,19 +34,6 @@ const firstThreePosts = unsortedPosts
 <style lang="scss">
 	@import "../../styles/base/_variables.scss";
 
-	div {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-	}
-
-	h2 {
-		line-height: 1;
-		margin-bottom: 3rem;
-		text-align: center;
-	}
-
 	.smallerText {
 		@media screen and (min-width: $breakpoint-sm) {
 			display: block;
@@ -67,6 +54,21 @@ const firstThreePosts = unsortedPosts
 			text-transform: uppercase;
 			width: max-content;
 		}
+	}
+</style>
+
+<style>
+	div {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	h2 {
+		line-height: 1;
+		margin-bottom: 3rem;
+		text-align: center;
 	}
 
 	p {
