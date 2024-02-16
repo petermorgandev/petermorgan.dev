@@ -1,6 +1,6 @@
 a {
-	color: $color-body;
-	text-decoration-thickness: $line-thickness;
+	color: var(--color-body);
+	text-decoration-thickness: var(--line-thickness);
 	text-underline-position: under;
 
 	:where(sup) & {

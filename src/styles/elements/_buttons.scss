@@ -1,6 +1,6 @@
 .custombtn {
 	border-radius: 0;
-	border: $line-thickness solid $color-body;
+	border: var(--line-thickness) solid var(--color-body);
 	display: inline-block;
 	padding: 0.5rem 0.75rem;
 	text-decoration: none;
@@ -12,8 +12,8 @@
 
 	&:focus,
 	&:hover {
-		background-color: $color-blue;
-		border: $line-thickness solid $color-blue;
+		background-color: var(--color-blue);
+		border: var(--line-thickness) solid var(--color-blue);
 		color: white;
 	}
 }

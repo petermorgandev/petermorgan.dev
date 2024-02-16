@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	background-color: $color-gray;
+	background-color: var(--color-gray);
 	display: flex;
 	flex-direction: column;
 	height: 100%;

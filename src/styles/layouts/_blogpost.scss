@@ -1,13 +1,13 @@
 .singleBlogContent {
 	h2 {
-		font-weight: $fw-bold;
+		font-weight: var(--fw-bold);
 		margin-bottom: 1rem;
 	}
 
 	span[title] {
 		text-decoration-line: underline;
 		text-decoration-style: dotted;
-		text-decoration-thickness: $line-thickness;
+		text-decoration-thickness: var(--line-thickness);
 		text-underline-position: under;
 
 		&:hover {

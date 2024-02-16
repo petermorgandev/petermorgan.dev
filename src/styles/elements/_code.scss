@@ -6,9 +6,9 @@ pre.astro-code {
 }
 
 :not(pre)>code {
-	background-color: $color-blue;
+	background-color: var(--color-blue);
 	color: white;
-	font-family: monospace, $font-special;
+	font-family: monospace, var(--font-special);
 	font-size: 0.875rem;
 	padding: 0.125rem 0.25rem;
 	user-select: all;

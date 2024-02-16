@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname;
 <header class="bg-blue">
 	<div class="container">
 		<a href="/" class="wordmark-link">
-			<img src={wordmark} alt="Word mark: Letters PM inside a circle." width="173" height="173">
+			<img src={wordmark} alt="Word mark: Letters PM inside a circle." width="173" height="173" />
 		</a>
 		<ul>
 			{
@@ -30,7 +30,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <style lang="scss">
-@import "../styles/base/_variables.scss";
+	@import "../styles/base/_variables.scss";
 
 	.wordmark-link {
 		margin-bottom: 1.5rem;
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
 	}
 
 	header {
-		box-shadow: 0 1rem 2rem .1rem rgba(black, 0.1);
+		box-shadow: 0 1rem 2rem 0.1rem rgba(black, 0.1);
 		margin-bottom: 6rem;
 	}
 
@@ -89,6 +89,6 @@ const currentPath = Astro.url.pathname;
 	}
 
 	.current-page {
-		font-weight: $fw-bold;
+		font-weight: var(--fw-bold);
 	}
 </style>

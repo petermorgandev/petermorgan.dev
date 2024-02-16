@@ -1,20 +1,20 @@
 body {
-	color: $color-body;
-	font-family: $font-special;
-	font-weight: $fw-normal;
+	color: var(--color-body);
+	font-family: var(--font-special);
+	font-weight: var(--fw-normal);
 	letter-spacing: 0.025em;
 	line-height: 1.5;
 
 	@media screen and (min-width: $breakpoint-sm) {
-		font-size: $fs-body-desktop;
+		font-size: var(--fs-body-desktop);
 	}
 }
 
 small,
 .small {
-	font-size: $fs-small-desktop;
+	font-size: var(--fs-small-desktop);
 }
 
 strong {
-	font-weight: $fw-bold;
+	font-weight: var(--fw-bold);
 }

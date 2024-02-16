@@ -1,28 +1,28 @@
 h1 {
-	font-weight: $fw-bold;
+	font-weight: var(--fw-bold);
 
 	@media screen and (min-width: $breakpoint-sm) {
-		font-size: $fs-h1-desktop;
+		font-size: var(--fs-h1-desktop);
 	}
 }
 
 h2 {
-	font-weight: $fw-bold;
+	font-weight: var(--fw-bold);
 
 	@media screen and (min-width: $breakpoint-sm) {
-		font-size: $fs-h2-desktop;
+		font-size: var(--fs-h2-desktop);
 	}
 }
 
 h3 {
-	font-weight: $fw-normal;
+	font-weight: var(--fw-normal);
 
 	@media screen and (min-width: $breakpoint-sm) {
-		font-size: $fs-h3-desktop;
+		font-size: var(--fs-h3-desktop);
 	}
 }
 
 .small-heading {
 	font-size: 1.25rem;
-	font-weight: $fw-normal;
+	font-weight: var(--fw-normal);
 }
