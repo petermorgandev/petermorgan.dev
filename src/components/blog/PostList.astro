@@ -28,12 +28,6 @@ const formattedPublishDate = formatDate(publishDate, dateOptions);
 <style lang="scss">
 	@import "../../styles/base/_variables.scss";
 
-	.post-preview {
-		&:not(:last-child) {
-			margin-bottom: 3rem;
-		}
-	}
-
 	h3 {
 		margin-bottom: 1rem;
 
@@ -41,19 +35,28 @@ const formattedPublishDate = formatDate(publishDate, dateOptions);
 			font-size: 2rem;
 		}
 	}
+</style>
 
-	h2,
-	h3 {
-		font-weight: 600;
+<style>
+	a,
+	a:hover {
+		color: var(--color-blue);
 	}
 
 	a {
-		color: var(--color-blue);
 		text-decoration: none;
+	}
 
-		&:hover {
-			color: var(--color-blue);
-			text-decoration: underline;
-		}
+	a:hover {
+		text-decoration: underline;
+	}
+
+	h2,
+	h3 {
+		font-weight: var(--fw-bold);
+	}
+
+	.post-preview:not(:last-child) {
+		margin-bottom: 3rem;
 	}
 </style>
