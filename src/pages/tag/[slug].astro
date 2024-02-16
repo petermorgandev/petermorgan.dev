@@ -1,16 +1,17 @@
 ---
-import TagDescriptions from "@data/global/tag-descriptions.json";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 import PostList from "@components/blog/PostList.astro";
+import TagDescriptions from "@data/global/tag-descriptions.json";
 
 export async function getStaticPaths() {
-	const getPosts = await Astro.glob("../../data/blog-posts/*.md");
+	const getPosts = await getCollection("blog");
 
-	const tagSet = new Set();
+	const tagSet = new Set<string>();
 
 	getPosts.forEach((post) => {
-		if (post.frontmatter.tags) {
-			post.frontmatter.tags.map((category: String) => {
+		if (post.data.tags) {
+			post.data.tags.map((category: string) => {
 				tagSet.add(category);
 			});
 		}
@@ -20,13 +21,13 @@ export async function getStaticPaths() {
 
 	return tagArray.map((tag) => {
 		const unsortedPosts = getPosts.filter((post) => {
-			if (post.frontmatter.tags) {
-				return post.frontmatter.tags.includes(tag);
+			if (post.data.tags) {
+				return post.data.tags.includes(tag);
 			}
 		});
 
 		const posts = unsortedPosts.sort((a, b) => {
-			return new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf();
+			return new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf();
 		});
 
 		return {
@@ -40,6 +41,7 @@ export async function getStaticPaths() {
 }
 
 const { tag, posts } = Astro.props;
+
 const title = `Tag: ${tag}`;
 const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection of ${tag}-related blog posts.`;
 ---
@@ -49,7 +51,20 @@ const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection 
 		<h1>{title}</h1>
 		<h2 class="fontsize-h3">{description}</h2>
 	</div>
-	{posts.map((post) => <PostList data={post} />)}
+
+	{
+		posts.map((post) => (
+			<PostList
+				data={{
+					title: post.data.title,
+					description: post.data.description,
+					publishDate: post.data.publishDate,
+					tags: post.data.tags,
+					slug: post.slug,
+				}}
+			/>
+		))
+	}
 </BaseLayout>
 
 <style lang="scss">
@@ -61,6 +76,7 @@ const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection 
 		flex-direction: column;
 		margin-bottom: 6rem;
 		text-align: center;
+		width: 100%;
 	}
 
 	h1 {
