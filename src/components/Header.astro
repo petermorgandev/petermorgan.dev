@@ -29,31 +29,6 @@ const currentPath = Astro.url.pathname;
 	</div>
 </header>
 
-<style lang="scss">
-	@import "../styles/base/_variables.scss";
-
-	.wordmark-link {
-		margin-bottom: 1.5rem;
-
-		@media screen and (min-width: $breakpoint-md) {
-			margin-bottom: 0;
-		}
-	}
-
-	div {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		padding-top: 2rem;
-		padding-bottom: 2rem;
-
-		@media screen and (min-width: $breakpoint-md) {
-			flex-direction: row;
-		}
-	}
-</style>
-
 <style>
 	a {
 		color: white;
@@ -63,6 +38,21 @@ const currentPath = Astro.url.pathname;
 	a:hover {
 		color: white;
 		text-decoration: underline;
+	}
+
+	div {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	@media screen and (min-width: 768px) {
+		div {
+			flex-direction: row;
+		}
 	}
 
 	header {
@@ -92,5 +82,15 @@ const currentPath = Astro.url.pathname;
 
 	.current-page {
 		font-weight: var(--fw-bold);
+	}
+
+	.wordmark-link {
+		margin-bottom: 1.5rem;
+	}
+
+	@media screen and (min-width: 768px) {
+		.wordmark-link {
+			margin-bottom: 0;
+		}
 	}
 </style>

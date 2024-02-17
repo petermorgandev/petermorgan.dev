@@ -14,8 +14,16 @@ import ContactIcons from "../ContactIcons.astro";
 	<ContactIcons mode="dark" />
 </div>
 
-<style lang="scss">
-	@import "../../styles/base/_variables.scss";
+<style>
+	div {
+		margin-bottom: 6rem;
+		position: relative;
+		text-align: center;
+	}
+
+	h1 {
+		margin-bottom: 3rem;
+	}
 
 	img {
 		display: none;
@@ -24,8 +32,10 @@ import ContactIcons from "../ContactIcons.astro";
 		right: 0;
 		width: 100px;
 		height: 100px;
+	}
 
-		@media screen and (min-width: $breakpoint-sm) {
+	@media screen and (min-width: 576px) {
+		img {
 			display: block;
 		}
 	}
@@ -53,7 +63,7 @@ import ContactIcons from "../ContactIcons.astro";
 		font-weight: var(--fw-normal);
 	}
 
-	@media screen and (min-width: $breakpoint-md) {
+	@media screen and (min-width: 768px) {
 		p {
 			padding-left: 1.5rem;
 			padding-right: 1.5rem;
@@ -73,17 +83,5 @@ import ContactIcons from "../ContactIcons.astro";
 		.middle {
 			font-size: 5rem;
 		}
-	}
-</style>
-
-<style>
-	div {
-		margin-bottom: 6rem;
-		position: relative;
-		text-align: center;
-	}
-
-	h1 {
-		margin-bottom: 3rem;
 	}
 </style>

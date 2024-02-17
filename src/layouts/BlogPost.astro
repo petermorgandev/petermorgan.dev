@@ -29,39 +29,41 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 			<div class="container">
 				<div class="singleBlogMeta no-margin-last-element w-100">
 					<h1>{title}</h1>
+
 					<p class="postDate">
 						{
 							publishDate && (
 								<>
-									<strong>Posted on: </strong> <time>{formattedPublishDate}</time>
+									<strong>Posted on: </strong>
+									<time>{formattedPublishDate}</time>
 								</>
 							)
 						}
+
 						{
 							modifiedDate && (
 								<>
-									<strong>Last Updated on: </strong> <time>{formattedModifiedDate}</time>
+									<strong>Last Updated on: </strong>
+									<time>{formattedModifiedDate}</time>
 								</>
 							)
 						}
 					</p>
+
 					{tags && <TagList {tags} align="center" />}
 				</div>
+
 				<div class="singleBlogContent no-margin-last-element">
 					<slot />
 				</div>
-				<p class="backToBlog"><a href="/blog/" class="text-black">Back to Blog</a></p>
+
+				<p class="backToBlog"><a href="/blog/">Back to Blog</a></p>
 			</div>
 		</div>
 
 		<Footer />
 
 		<style>
-			.singleBlogContent {
-				margin-bottom: 6rem;
-				margin-top: 6rem;
-			}
-
 			h1 {
 				text-align: center;
 				text-transform: uppercase;
@@ -70,6 +72,7 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 			}
 
 			.backToBlog {
+				color: var(--color-body);
 				margin-bottom: 0;
 				text-align: center;
 			}
@@ -77,6 +80,29 @@ const formattedModifiedDate = formatDate(modifiedDate, dateOptions);
 			.postDate {
 				margin-bottom: 1.5rem;
 				text-align: center;
+			}
+		</style>
+
+		<style is:global>
+			.singleBlogContent {
+				margin-bottom: 6rem;
+				margin-top: 6rem;
+			}
+
+			.singleBlogContent h2 {
+				font-weight: var(--fw-bold);
+				margin-bottom: 1rem;
+			}
+
+			.singleBlogContent span[title] {
+				text-decoration-line: underline;
+				text-decoration-style: dotted;
+				text-decoration-thickness: var(--line-thickness);
+				text-underline-position: under;
+			}
+
+			.singleBlogContent span[title]:hover {
+				cursor: help;
 			}
 		</style>
 	</body>

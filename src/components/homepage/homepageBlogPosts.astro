@@ -31,32 +31,6 @@ const firstThreePosts = unsortedPosts
 
 <p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
 
-<style lang="scss">
-	@import "../../styles/base/_variables.scss";
-
-	.smallerText {
-		@media screen and (min-width: $breakpoint-sm) {
-			display: block;
-			font-size: 1.25rem;
-			font-weight: var(--fw-normal);
-			margin-bottom: 1rem;
-		}
-	}
-
-	.biggerText {
-		@media screen and (min-width: $breakpoint-sm) {
-			box-shadow: inset 0 -0.5em 0 #868b9f;
-			display: block;
-			font-size: 4rem;
-			font-weight: var(--fw-bold);
-			padding-right: 1rem;
-			padding-left: 1rem;
-			text-transform: uppercase;
-			width: max-content;
-		}
-	}
-</style>
-
 <style>
 	div {
 		align-items: center;
@@ -74,6 +48,19 @@ const firstThreePosts = unsortedPosts
 	p {
 		margin-top: 3rem;
 		margin-bottom: 0;
+	}
+
+	@media screen and (min-width: 576px) {
+		.biggerText {
+			box-shadow: inset 0 -0.5em 0 #868b9f;
+			display: block;
+			font-size: 4rem;
+			font-weight: var(--fw-bold);
+			padding-right: 1rem;
+			padding-left: 1rem;
+			text-transform: uppercase;
+			width: max-content;
+		}
 	}
 
 	.custombtn {
@@ -96,5 +83,14 @@ const firstThreePosts = unsortedPosts
 		background-color: var(--color-blue);
 		border: var(--line-thickness) solid var(--color-blue);
 		color: white;
+	}
+
+	@media screen and (min-width: 576px) {
+		.smallerText {
+			display: block;
+			font-size: 1.25rem;
+			font-weight: var(--fw-normal);
+			margin-bottom: 1rem;
+		}
 	}
 </style>
