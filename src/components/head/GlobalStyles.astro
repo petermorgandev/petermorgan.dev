@@ -1,4 +1,22 @@
 <style is:global>
+	@font-face {
+		font-family: "Work Sans";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/files/fonts/work-sans-latin-fw400.woff2") format("woff2");
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
+	@font-face {
+		font-family: "Work Sans";
+		font-style: normal;
+		font-weight: 600;
+		font-display: swap;
+		src: url("/files/fonts/work-sans-latin-fw400.woff2") format("woff2");
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+
 	:root {
 		--color-body: black;
 		--color-blue: #172149;
@@ -20,18 +38,68 @@
 
 	body {
 		background-color: var(--color-gray);
+		color: var(--color-body);
 		display: flex;
 		flex-direction: column;
+		font-family: var(--font-special);
+		font-weight: var(--fw-normal);
 		height: 100%;
+		letter-spacing: 0.025em;
+		line-height: 1.5;
+	}
+
+	@media screen and (min-width: 576px) {
+		body {
+			font-size: var(--fs-body-desktop);
+		}
 	}
 
 	html {
 		height: 100%;
 	}
 
+	h1 {
+		font-weight: var(--fw-bold);
+	}
+
+	@media screen and (min-width: 576px) {
+		h1 {
+			font-size: var(--fs-h1-desktop);
+		}
+	}
+
+	h2 {
+		font-weight: var(--fw-bold);
+	}
+
+	@media screen and (min-width: 576px) {
+		h2 {
+			font-size: var(--fs-h2-desktop);
+		}
+	}
+
+	h3 {
+		font-weight: var(--fw-normal);
+	}
+
+	@media screen and (min-width: 576px) {
+		h3 {
+			font-size: var(--fs-h3-desktop);
+		}
+	}
+
 	img {
 		height: auto;
 		max-width: 100%;
+	}
+
+	small,
+	.small {
+		font-size: var(--fs-small-desktop);
+	}
+
+	strong {
+		font-weight: var(--fw-bold);
 	}
 
 	.bg-blue {
@@ -42,7 +110,34 @@
 		background-color: var(--color-gray);
 	}
 
+	.mb-6r {
+		margin-bottom: 6rem;
+	}
+
+	.no-margin-last-element > :last-child {
+		margin-bottom: 0;
+	}
+
 	.page-wrapper {
 		flex-shrink: 0;
+	}
+
+	.small-heading {
+		font-size: 1.25rem;
+		font-weight: var(--fw-normal);
+	}
+
+	@media screen and (min-width: 576px) {
+		.fontsize-h1 {
+			font-size: var(--fs-h1-desktop);
+		}
+
+		.fontsize-h2 {
+			font-size: var(--fs-h2-desktop);
+		}
+
+		.fontsize-h3 {
+			font-size: var(--fs-h3-desktop);
+		}
 	}
 </style>
