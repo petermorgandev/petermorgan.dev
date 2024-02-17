@@ -75,4 +75,26 @@ const firstThreePosts = unsortedPosts
 		margin-top: 3rem;
 		margin-bottom: 0;
 	}
+
+	.custombtn {
+		border-radius: 0;
+		border: var(--line-thickness) solid var(--color-body);
+		display: inline-block;
+		padding: 0.5rem 0.75rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	@media screen and (min-width: 576px) {
+		.custombtn {
+			padding: 0.75rem 1.5rem;
+		}
+	}
+
+	.custombtn:focus,
+	.custombtn:hover {
+		background-color: var(--color-blue);
+		border: var(--line-thickness) solid var(--color-blue);
+		color: white;
+	}
 </style>
