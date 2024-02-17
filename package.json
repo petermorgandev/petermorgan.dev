@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.0.5",
-    "astro": "^4.4.0",
-    "sass": "^1.54.5"
+    "astro": "^4.4.0"
   }
 }
