@@ -28,19 +28,7 @@ const tagArray = [...tagSet];
 		{tagArray && <TagList tags={tagArray} align="center" />}
 	</div>
 
-	{
-		sortedPosts.map((post) => (
-			<PostList
-				data={{
-					title: post.data.title,
-					description: post.data.description,
-					publishDate: post.data.publishDate,
-					tags: post.data.tags,
-					slug: post.slug,
-				}}
-			/>
-		))
-	}
+	{sortedPosts.map((post) => <PostList description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} tags={post.data.tags} title={post.data.title} />)}
 </BaseLayout>
 
 <style>

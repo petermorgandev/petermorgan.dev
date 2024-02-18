@@ -2,8 +2,15 @@
 import formatDate from "@utils/formatDate";
 import TagList from "@components/blog/TagList.astro";
 
-const { data } = Astro.props;
-const { title, description, publishDate, tags, slug } = data;
+export interface Props {
+	description: string;
+	publishDate: string;
+	slug: string;
+	tags?: string[];
+	title: string;
+}
+
+const { description, publishDate, slug, tags, title } = Astro.props;
 
 const dateOptions: object = {
 	year: "numeric",
