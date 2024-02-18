@@ -1,12 +1,15 @@
 ---
-const { tags, align } = Astro.props;
-const tagsSorted = tags ? tags.sort() : [];
-const ulAlignment = align ? align : "start";
+export interface Props {
+	align?: string;
+	tags: string[];
+}
+
+const { align, tags } = Astro.props;
 ---
 
-<ul class={`text-${ulAlignment}`}>
+<ul class:list={[align ? `text-${align}` : "text-start"]}>
 	{
-		tagsSorted.map((tag: String) => (
+		tags.sort().map((tag: string) => (
 			<li>
 				<a href={`/tag/${tag}/`}>#{tag}</a>
 			</li>
