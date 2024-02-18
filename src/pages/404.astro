@@ -6,20 +6,23 @@ const description = "The file or page you are trying to access cannot be found."
 ---
 
 <BaseLayout title={title} description={description}>
-	<h1>{title}</h1>
-	<p>{description}</p>
+	<div>
+		<h1>{title}</h1>
+
+		<p>{description}</p>
+	</div>
 </BaseLayout>
 
 <style>
 	div {
-		flex-direction: column;
 		text-align: center;
+		width: 100%;
 	}
 
 	h1 {
-		text-transform: uppercase;
 		line-height: 1;
 		margin-bottom: 6rem;
+		text-transform: uppercase;
 	}
 
 	p {
