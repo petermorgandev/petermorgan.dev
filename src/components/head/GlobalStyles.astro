@@ -34,6 +34,8 @@
 		--fw-bold: 600;
 
 		--line-thickness: 2px;
+
+		--margin-lots: 6rem;
 	}
 
 	a {
@@ -135,14 +137,14 @@
 		width: 100%;
 	}
 
-	@media screen and (min-width: 576px) {
+	@media screen and (min-width: 786px) {
 		.container {
 			width: 744px;
 		}
 	}
 
 	.mb-6r {
-		margin-bottom: 6rem;
+		margin-bottom: var(--margin-lots);
 	}
 
 	.no-margin-last-element > :last-child {

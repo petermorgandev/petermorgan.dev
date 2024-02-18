@@ -11,6 +11,20 @@ const blogPostsCollection = defineCollection({
 	}),
 });
 
+const contactLinksCollection = defineCollection({
+	type: "data",
+	schema: z.object({
+		url: z.string().url(),
+		order: z.number().optional(),
+		image: z.object({
+			light: z.string(),
+			dark: z.string(),
+			altText: z.string(),
+		}),
+	}),
+});
+
 export const collections = {
 	blog: blogPostsCollection,
+	"contact-links": contactLinksCollection,
 };

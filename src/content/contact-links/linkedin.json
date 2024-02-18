@@ -1,0 +1,9 @@
+{
+	"url": "https://www.linkedin.com/in/petermorgandev",
+	"order": 2,
+	"image": {
+		"light": "linkedin-light-62x62px.png",
+		"dark": "linkedin-dark-62x62px.png",
+		"altText": "LinkedIn icon"
+	}
+}

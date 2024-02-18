@@ -12,10 +12,10 @@ const sortedPosts = unsortedPosts.sort((a, b) => {
 	return new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf();
 });
 
-const tagSet = new Set();
+const tagSet = new Set<string>();
 sortedPosts.forEach((post) => {
 	if (post.data.tags) {
-		post.data.tags.forEach((tag: String) => tagSet.add(tag));
+		post.data.tags.forEach((tag: string) => tagSet.add(tag));
 	}
 });
 const tagArray = [...tagSet];
@@ -28,19 +28,7 @@ const tagArray = [...tagSet];
 		{tagArray && <TagList tags={tagArray} align="center" />}
 	</div>
 
-	{
-		sortedPosts.map((post) => (
-			<PostList
-				data={{
-					title: post.data.title,
-					description: post.data.description,
-					publishDate: post.data.publishDate,
-					tags: post.data.tags,
-					slug: post.slug,
-				}}
-			/>
-		))
-	}
+	{sortedPosts.map((post) => <PostList description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} tags={post.data.tags} title={post.data.title} />)}
 </BaseLayout>
 
 <style>
@@ -68,6 +56,6 @@ const tagArray = [...tagSet];
 		display: flex;
 		flex-direction: column;
 		text-align: center;
-		margin-bottom: 6rem;
+		margin-bottom: var(--margin-lots);
 	}
 </style>

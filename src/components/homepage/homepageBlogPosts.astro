@@ -15,19 +15,7 @@ const firstThreePosts = unsortedPosts
 	<h2><span class="smallerText">Most Recent</span>{" "}<span class="biggerText">Blog Posts</span></h2>
 </div>
 
-{
-	firstThreePosts.map((post) => (
-		<PostList
-			data={{
-				title: post.data.title,
-				description: post.data.description,
-				publishDate: post.data.publishDate,
-				tags: post.data.tags,
-				slug: post.slug,
-			}}
-		/>
-	))
-}
+{firstThreePosts.map((post) => <PostList description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} tags={post.data.tags} title={post.data.title} />)}
 
 <p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
 

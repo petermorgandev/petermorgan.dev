@@ -52,19 +52,7 @@ const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection 
 		<h2 class="fontsize-h3">{description}</h2>
 	</div>
 
-	{
-		posts.map((post) => (
-			<PostList
-				data={{
-					title: post.data.title,
-					description: post.data.description,
-					publishDate: post.data.publishDate,
-					tags: post.data.tags,
-					slug: post.slug,
-				}}
-			/>
-		))
-	}
+	{posts.map((post) => <PostList description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} tags={post.data.tags} title={post.data.title} />)}
 </BaseLayout>
 
 <style>
@@ -72,7 +60,7 @@ const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection 
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 6rem;
+		margin-bottom: var(--margin-lots);
 		text-align: center;
 		width: 100%;
 	}
