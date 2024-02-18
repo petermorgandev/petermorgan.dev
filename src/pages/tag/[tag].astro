@@ -1,15 +1,19 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import PostList from "@components/blog/PostList.astro";
 import TagDescriptions from "@data/global/tag-descriptions.json";
 
 export async function getStaticPaths() {
 	const getPosts = await getCollection("blog");
+	const sortedPosts = getPosts.sort((a, b) => {
+		return new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf();
+	});
 
 	const tagSet = new Set<string>();
 
-	getPosts.forEach((post) => {
+	sortedPosts.forEach((post) => {
 		if (post.data.tags) {
 			post.data.tags.map((category: string) => {
 				tagSet.add(category);
@@ -20,27 +24,28 @@ export async function getStaticPaths() {
 	const tagArray = [...tagSet];
 
 	return tagArray.map((tag) => {
-		const unsortedPosts = getPosts.filter((post) => {
+		const posts = sortedPosts.filter((post) => {
 			if (post.data.tags) {
 				return post.data.tags.includes(tag);
 			}
 		});
 
-		const posts = unsortedPosts.sort((a, b) => {
-			return new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf();
-		});
-
 		return {
-			params: { slug: tag },
+			params: { tag },
 			props: {
-				tag,
 				posts,
+				tag,
 			},
 		};
 	});
 }
 
-const { tag, posts } = Astro.props;
+interface Props {
+	posts: CollectionEntry<"blog">[];
+	tag: string;
+}
+
+const { posts, tag } = Astro.props;
 
 const title = `Tag: ${tag}`;
 const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection of ${tag}-related blog posts.`;
