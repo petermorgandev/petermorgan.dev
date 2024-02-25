@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import LinkButton from "@components/LinkButton.astro";
 import PostList from "@components/blog/PostList.astro";
 
 const unsortedPosts = await getCollection("blog");
@@ -17,7 +18,9 @@ const firstThreePosts = unsortedPosts
 
 {firstThreePosts.map((post) => <PostList description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} tags={post.data.tags} title={post.data.title} />)}
 
-<p><a href="/blog/" class="custombtn">View All Blog Posts</a></p>
+<div class="view-all-container">
+	<LinkButton href="/blog/">View All Blog Posts</LinkButton>
+</div>
 
 <style>
 	div {
@@ -33,7 +36,7 @@ const firstThreePosts = unsortedPosts
 		text-align: center;
 	}
 
-	p {
+	.view-all-container {
 		margin-top: 3rem;
 		margin-bottom: 0;
 	}
@@ -49,31 +52,7 @@ const firstThreePosts = unsortedPosts
 			text-transform: uppercase;
 			width: max-content;
 		}
-	}
 
-	.custombtn {
-		border-radius: 0;
-		border: var(--line-thickness) solid var(--color-body);
-		display: inline-block;
-		padding: 0.5rem 0.75rem;
-		text-decoration: none;
-		text-transform: uppercase;
-	}
-
-	@media screen and (min-width: 576px) {
-		.custombtn {
-			padding: 0.75rem 1.5rem;
-		}
-	}
-
-	.custombtn:focus,
-	.custombtn:hover {
-		background-color: var(--color-blue);
-		border: var(--line-thickness) solid var(--color-blue);
-		color: white;
-	}
-
-	@media screen and (min-width: 576px) {
 		.smallerText {
 			display: block;
 			font-size: 1.25rem;
