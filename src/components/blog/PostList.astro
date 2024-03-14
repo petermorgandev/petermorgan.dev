@@ -1,4 +1,5 @@
 ---
+import createDateTimeAttr from "@utils/createDateTimeAttr";
 import formatDate from "@utils/formatDate";
 import TagList from "@components/blog/TagList.astro";
 
@@ -19,6 +20,7 @@ const dateOptions: object = {
 };
 
 const formattedPublishDate = formatDate(publishDate, dateOptions);
+const publishDateDateTime = createDateTimeAttr(publishDate);
 ---
 
 <article class="post-preview no-margin-last-element">
@@ -26,7 +28,7 @@ const formattedPublishDate = formatDate(publishDate, dateOptions);
 		<h3>
 			<a href={`/blog/${slug}/`}>{title}</a>
 		</h3>
-		<p>{formattedPublishDate}</p>
+		<p><time datetime={publishDateDateTime}>{formattedPublishDate}</time></p>
 	</header>
 	<p>{description}</p>
 	{tags && <TagList {tags} />}
