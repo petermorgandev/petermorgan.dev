@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import formatDate from "@utils/formatDate";
 import createDateTimeAttr from "@utils/createDateTimeAttr";
@@ -12,6 +13,10 @@ export async function getStaticPaths() {
 		params: { slug: entry.slug },
 		props: { entry },
 	}));
+}
+
+interface Props {
+	entry: CollectionEntry<"blog">;
 }
 
 const { entry } = Astro.props;
