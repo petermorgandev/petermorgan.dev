@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import formatDate from "@utils/formatDate";
+import createDateTimeAttr from "@utils/createDateTimeAttr";
 import TagList from "@components/blog/TagList.astro";
 
 export async function getStaticPaths() {
@@ -23,7 +24,9 @@ const dateOptions: object = {
 };
 
 const formattedPublishDate = formatDate(entry.data.publishDate, dateOptions);
+const publishDateDateTime = createDateTimeAttr(entry.data.publishDate);
 const formattedModifiedDate = formatDate(entry.data.modifiedDate, dateOptions);
+const modifiedDateDateTime = createDateTimeAttr(entry.data.modifiedDate);
 ---
 
 <BaseLayout description={entry.data.description} title={entry.data.title}>
@@ -31,20 +34,14 @@ const formattedModifiedDate = formatDate(entry.data.modifiedDate, dateOptions);
 		<h1>{entry.data.title}</h1>
 
 		<p class="postDate">
-			{
-				entry.data.publishDate && (
-					<>
-						<strong>Posted on: </strong>
-						<time>{formattedPublishDate}</time>
-					</>
-				)
-			}
+			<strong>Posted on: </strong>
+			<time datetime={publishDateDateTime}>{formattedPublishDate}</time>
 
 			{
 				entry.data.modifiedDate && (
 					<>
 						<strong>Last Updated on: </strong>
-						<time>{formattedModifiedDate}</time>
+						<time datetime={modifiedDateDateTime}>{formattedModifiedDate}</time>
 					</>
 				)
 			}
