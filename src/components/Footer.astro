@@ -4,16 +4,20 @@ import ContactIcons from "@components/ContactIcons.astro";
 
 <footer>
 	<div class="bg-blue">
-		<div class="footer-container container">
+		<div class="container">
 			<h2>Contact Me</h2>
 			<p>You can contact me by clicking on the icons below. I will respond - assuming you're not soliciting or spamming me - as soon as I can.</p>
-			<ContactIcons mode="light" lazy={true} />
+
+			<div>
+				<ContactIcons mode="light" lazy={true} />
+			</div>
 		</div>
 	</div>
 </footer>
 
 <style>
 	footer {
+		color: white;
 		margin-top: auto;
 	}
 
@@ -23,10 +27,9 @@ import ContactIcons from "@components/ContactIcons.astro";
 
 	.bg-blue {
 		margin-top: var(--margin-lots);
-		color: white;
 	}
 
-	.footer-container {
+	.container {
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 	}
