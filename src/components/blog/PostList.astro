@@ -48,6 +48,10 @@ const publishDateDateTime = createDateTimeAttr(publishDate);
 		text-decoration: underline;
 	}
 
+	article + article {
+		margin-top: 3rem;
+	}
+
 	h2,
 	h3 {
 		font-weight: var(--fw-bold);
@@ -61,9 +65,5 @@ const publishDateDateTime = createDateTimeAttr(publishDate);
 		h3 {
 			font-size: 2rem;
 		}
-	}
-
-	.post-preview:not(:last-child) {
-		margin-bottom: 3rem;
 	}
 </style>
