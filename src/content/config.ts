@@ -33,8 +33,17 @@ const menuLinksCollection = defineCollection({
 	}),
 });
 
+const tagsCollection = defineCollection({
+	type: "data",
+	schema: z.object({
+		description: z.string(),
+		tag: z.string(),
+	}),
+});
+
 export const collections = {
 	blog: blogPostsCollection,
 	"contact-links": contactLinksCollection,
 	"menu-links": menuLinksCollection,
+	tags: tagsCollection,
 };

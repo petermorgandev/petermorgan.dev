@@ -1,9 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import PostList from "@components/blog/PostList.astro";
-import TagDescriptions from "@data/global/tag-descriptions.json";
 
 export async function getStaticPaths() {
 	const getPosts = await getCollection("blog");
@@ -48,13 +47,16 @@ interface Props {
 const { posts, tag } = Astro.props;
 
 const title = `Tag: ${tag}`;
-const description = TagDescriptions[tag] ? TagDescriptions[tag] : `A collection of ${tag}-related blog posts.`;
+
+const getTagDescription = await getEntry("tags", tag);
+const tagDescription = getTagDescription?.data?.description ?? `A collection of ${tag}-related blog posts.`;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={tagDescription}>
 	<div class="no-margin-last-element blog-post-header">
 		<h1>{title}</h1>
-		<h2 class="fontsize-h3">{description}</h2>
+
+		<h2 class="fontsize-h3">{tagDescription}</h2>
 	</div>
 
 	{posts.map((post) => <PostList description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} tags={post.data.tags} title={post.data.title} />)}
