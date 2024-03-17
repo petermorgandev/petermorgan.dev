@@ -24,7 +24,17 @@ const contactLinksCollection = defineCollection({
 	}),
 });
 
+const menuLinksCollection = defineCollection({
+	type: "data",
+	schema: z.object({
+		label: z.string(),
+		order: z.number().optional(),
+		url: z.string(),
+	}),
+});
+
 export const collections = {
 	blog: blogPostsCollection,
 	"contact-links": contactLinksCollection,
+	"menu-links": menuLinksCollection,
 };

@@ -1,5 +1,9 @@
 ---
-import HeaderMenu from "@data/global/header-menu.json";
+import { getCollection } from "astro:content";
+
+const unsortedLinks = await getCollection("menu-links");
+const sortedLinks = unsortedLinks.sort((a, b) => a.data.order - b.data.order);
+
 const wordmark = "/images/components/header/wordmark-circle-rotated-transparency-173x173px.png";
 const currentPath = Astro.url.pathname;
 ---
@@ -11,16 +15,16 @@ const currentPath = Astro.url.pathname;
 		</a>
 		<ul>
 			{
-				HeaderMenu.map((menuItem) => (
+				sortedLinks.map(({ data: { label, url } }) => (
 					<li>
 						<a
 							class:list={[
 								{
-									"current-page": currentPath === menuItem.url,
+									"current-page": currentPath === url,
 								},
 							]}
-							href={menuItem.url}>
-							{menuItem.text}
+							href={url}>
+							{label}
 						</a>
 					</li>
 				))
