@@ -35,7 +35,7 @@ const modifiedDateDateTime = createDateTimeAttr(entry.data.modifiedDate);
 ---
 
 <BaseLayout description={entry.data.description} title={entry.data.title}>
-	<div class="singleBlogMeta no-margin-last-element w-100">
+	<div class="singleBlogMeta no-margin-last-element">
 		<h1>{entry.data.title}</h1>
 
 		<p class="postDate">
@@ -64,22 +64,24 @@ const modifiedDateDateTime = createDateTimeAttr(entry.data.modifiedDate);
 
 <style>
 	h1 {
-		text-align: center;
 		text-transform: uppercase;
 		line-height: 1;
 		margin-bottom: 3rem;
 	}
 
-	.backToBlog {
-		color: var(--color-body);
-		margin-bottom: 0;
+	.backToBlog,
+	.singleBlogMeta {
 		text-align: center;
 		width: 100%;
 	}
 
+	.backToBlog {
+		color: var(--color-body);
+		margin-bottom: 0;
+	}
+
 	.postDate {
 		margin-bottom: 1.5rem;
-		text-align: center;
 	}
 </style>
 
@@ -97,6 +99,11 @@ const modifiedDateDateTime = createDateTimeAttr(entry.data.modifiedDate);
 		font-family: monospace, var(--font-special);
 		font-size: 0.875rem;
 		padding: 0.125rem 0.25rem;
+	}
+
+	/* For links to footnotes in blog posts */
+	sup a[data-footnote-ref] {
+		text-decoration: none;
 	}
 
 	.footnotes {

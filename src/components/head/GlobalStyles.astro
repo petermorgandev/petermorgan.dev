@@ -38,6 +38,11 @@
 		--margin-lots: 6rem;
 	}
 
+	body,
+	html {
+		height: 100%;
+	}
+
 	a {
 		color: var(--color-body);
 		text-decoration-thickness: var(--line-thickness);
@@ -48,11 +53,6 @@
 		color: inherit;
 	}
 
-	/* For links to footnotes in blog posts */
-	sup a {
-		text-decoration: none;
-	}
-
 	body {
 		background-color: var(--color-gray);
 		color: var(--color-body);
@@ -60,7 +60,6 @@
 		flex-direction: column;
 		font-family: var(--font-special);
 		font-weight: var(--fw-normal);
-		height: 100%;
 		letter-spacing: 0.025em;
 		line-height: 1.5;
 	}
@@ -69,10 +68,6 @@
 		body {
 			font-size: var(--fs-body-desktop);
 		}
-	}
-
-	html {
-		height: 100%;
 	}
 
 	h1 {
