@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 
 const unsortedLinks = await getCollection("menu-links");
-const sortedLinks = unsortedLinks.sort((a, b) => a.data.order - b.data.order);
+const sortedLinks = unsortedLinks.map((link) => link.data).sort((a, b) => a.order - b.order);
 
 const wordmark = "/images/components/header/wordmark-circle-rotated-transparency-173x173px.png";
 const currentPath = Astro.url.pathname;
@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname;
 		</a>
 		<ul>
 			{
-				sortedLinks.map(({ data: { label, url } }) => (
+				sortedLinks.map(({ label, url }) => (
 					<li>
 						<a
 							class:list={[
