@@ -1,0 +1,15 @@
+---
+const wordmarkPath = "/images/components/header/wordmark-circle-rotated-transparency-173x173px.png";
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<a class={className} href="/" {...rest}>
+	<img src={wordmarkPath} alt="Word mark: Letters PM inside a circle." width="173" height="173" />
+</a>
+
+<style>
+	img {
+		width: 64px;
+	}
+</style>

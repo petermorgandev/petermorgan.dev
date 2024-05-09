@@ -1,49 +1,17 @@
 ---
-import { getCollection } from "astro:content";
-
-const unsortedLinks = await getCollection("menu-links");
-const sortedLinks = unsortedLinks.map((link) => link.data).sort((a, b) => a.order - b.order);
-
-const wordmark = "/images/components/header/wordmark-circle-rotated-transparency-173x173px.png";
-const currentPath = Astro.url.pathname;
+import NavMenu from "./header/NavMenu.astro";
+import WordmarkLink from "./header/WordmarkLink.astro";
 ---
 
 <header class="bg-blue">
 	<div class="container">
-		<a href="/" class="wordmark-link">
-			<img src={wordmark} alt="Word mark: Letters PM inside a circle." width="173" height="173" />
-		</a>
-		<ul>
-			{
-				sortedLinks.map(({ label, url }) => (
-					<li>
-						<a
-							class:list={[
-								{
-									"current-page": currentPath === url,
-								},
-							]}
-							href={url}>
-							{label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
+		<WordmarkLink class="wordmarklink-spacing" />
+
+		<NavMenu />
 	</div>
 </header>
 
 <style>
-	a {
-		color: white;
-		text-decoration: none;
-	}
-
-	a:hover {
-		color: white;
-		text-decoration: underline;
-	}
-
 	div {
 		align-items: center;
 		padding-top: 2rem;
@@ -62,36 +30,12 @@ const currentPath = Astro.url.pathname;
 		margin-bottom: var(--margin-lots);
 	}
 
-	img {
-		width: 64px;
-	}
-
-	li {
-		display: inline;
-		margin-left: 0;
-		font-size: 1.25rem;
-	}
-
-	li:not(:first-of-type) {
-		margin-left: 1.25rem;
-	}
-
-	ul {
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-	}
-
-	.current-page {
-		font-weight: var(--fw-bold);
-	}
-
-	.wordmark-link {
+	.wordmarklink-spacing {
 		margin-bottom: 1.5rem;
 	}
 
 	@media screen and (min-width: 768px) {
-		.wordmark-link {
+		.wordmarklink-spacing {
 			margin-bottom: 0;
 		}
 	}

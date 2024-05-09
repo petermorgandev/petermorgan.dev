@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content";
+
+const getMenuLinks = await getCollection("menu-links");
+const sortedLinks = getMenuLinks.map((link) => link.data).sort((a, b) => a.order - b.order);
+---
+
+<ul>
+	{
+		sortedLinks.map(({ label, url }) => (
+			<li>
+				<a
+					class:list={[
+						{
+							"current-page": Astro.url.pathname === url,
+						},
+					]}
+					href={url}>
+					{label}
+				</a>
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	a,
+	a:hover {
+		color: white;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	li {
+		display: inline-block;
+		font-size: 1.25rem;
+	}
+
+	li + li {
+		margin-left: 1.25rem;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+	}
+
+	.current-page {
+		font-weight: var(--fw-bold);
+	}
+</style>
