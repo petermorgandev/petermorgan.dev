@@ -22,8 +22,8 @@ const tagArray = [...tagSet];
 ---
 
 <BaseLayout title={title} description={description}>
-	<div class="intro no-margin-last-element">
-		<h1>Blog</h1>
+	<div class="intro no-margin-last-element text-center">
+		<h1 class="text-uppercase">Blog</h1>
 		<h2 class="fontsize-h3">Notes, code snippets, and reminders related to website development and technology.</h2>
 		{tagArray && <TagList tags={tagArray} centered />}
 	</div>
@@ -34,7 +34,6 @@ const tagArray = [...tagSet];
 <style>
 	h1 {
 		margin-bottom: 3rem;
-		text-transform: uppercase;
 	}
 
 	@media screen and (min-width: 576px) {
@@ -55,7 +54,5 @@ const tagArray = [...tagSet];
 		align-items: center;
 		display: flex;
 		flex-direction: column;
-		text-align: center;
-		margin-bottom: var(--margin-lots);
 	}
 </style>
