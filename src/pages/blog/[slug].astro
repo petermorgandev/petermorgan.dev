@@ -35,8 +35,8 @@ const modifiedDateDateTime = createDateTimeAttr(entry.data.modifiedDate);
 ---
 
 <BaseLayout description={entry.data.description} title={entry.data.title}>
-	<div class="singleBlogMeta no-margin-last-element">
-		<h1>{entry.data.title}</h1>
+	<div class="singleBlogMeta no-margin-last-element text-center">
+		<h1 class="text-uppercase">{entry.data.title}</h1>
 
 		<p class="postDate">
 			<strong>Posted on: </strong>
@@ -59,19 +59,17 @@ const modifiedDateDateTime = createDateTimeAttr(entry.data.modifiedDate);
 		<Content />
 	</div>
 
-	<p class="backToBlog"><a href="/blog/">Back to Blog</a></p>
+	<p class="backToBlog text-center"><a href="/blog/">Back to Blog</a></p>
 </BaseLayout>
 
 <style>
 	h1 {
-		text-transform: uppercase;
 		line-height: 1;
 		margin-bottom: 3rem;
 	}
 
 	.backToBlog,
 	.singleBlogMeta {
-		text-align: center;
 		width: 100%;
 	}
 
