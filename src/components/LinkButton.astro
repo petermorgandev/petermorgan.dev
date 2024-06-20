@@ -5,7 +5,7 @@ type Props = HTMLAttributes<"a">;
 const { href, ...attrs } = Astro.props;
 ---
 
-<a href={href} {...attrs}>
+<a class="text-uppercase" href={href} {...attrs}>
 	<slot />
 </a>
 
@@ -15,7 +15,6 @@ const { href, ...attrs } = Astro.props;
 		display: inline-block;
 		padding: 0.5rem 0.75rem;
 		text-decoration: none;
-		text-transform: uppercase;
 	}
 
 	@media screen and (min-width: 576px) {
