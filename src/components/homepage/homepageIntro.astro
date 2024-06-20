@@ -2,16 +2,16 @@
 import ContactIcons from "@components/ContactIcons.astro";
 ---
 
-<div>
+<div class="text-center">
 	<img src="/images/components/homepageIntro/wordmark-circle-rotated-navy-50percentopacity-173x173px.png" alt="PM wordmark in circle rotated at an angle" width="173" height="173" />
 
 	<h1>
 		<span class="start">Hi, I'm</span>
-		<span class="middle">Peter Morgan</span>
+		<span class="middle text-uppercase">Peter Morgan</span>
 		<span class="end">Web Developer</span>
 	</h1>
 
-	<p>Solving technical problems and writing code by day. <a href="https://djpetermorgan.com">Mixing electronic music</a>, playing computer/tabletop <a href="https://toukana.com/dorfromantik/" title="This links to the homepage for Dorformantik: a great indie game for PC (and soon Nintendo Switch) that I have played recently.">games</a>, and <a href="/tag/changelog/" title="Blog posts tagged with Changelog highlighting what I am working on and learning about.">lifelong learner</a> by night. Welcome to my small corner of the internet.</p>
+	<p>Solving technical problems and writing code by day. <a href="https://djpetermorgan.com">Mixing electronic music</a>, playing computer/tabletop games, and <a href="/tag/changelog/" title="Blog posts tagged with Changelog highlighting what I am working on and learning about.">lifelong learner</a> by night. Welcome to my small corner of the internet.</p>
 	<ContactIcons mode="dark" />
 </div>
 
@@ -19,7 +19,6 @@ import ContactIcons from "@components/ContactIcons.astro";
 	div {
 		margin-bottom: var(--margin-lots);
 		position: relative;
-		text-align: center;
 	}
 
 	h1 {
@@ -54,10 +53,6 @@ import ContactIcons from "@components/ContactIcons.astro";
 	.start,
 	.middle {
 		margin-bottom: 1rem;
-	}
-
-	.middle {
-		text-transform: uppercase;
 	}
 
 	.end {
