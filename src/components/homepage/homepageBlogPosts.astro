@@ -16,7 +16,7 @@ const firstThreePosts = unsortedPosts
 	<h2 class="text-center"><span class="smallerText">Most Recent</span>{" "}<span class="biggerText">Blog Posts</span></h2>
 </div>
 
-{firstThreePosts.map((post) => <PostList description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} tags={post.data.tags} title={post.data.title} />)}
+{firstThreePosts.map(({ data, slug }) => <PostList description={data.description} publishDate={data.publishDate} slug={slug} tags={data.tags} title={data.title} />)}
 
 <div class="view-all-container">
 	<LinkButton href="/blog/">View All Blog Posts</LinkButton>
