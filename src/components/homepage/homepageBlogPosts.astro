@@ -13,7 +13,7 @@ const firstThreePosts = unsortedPosts
 ---
 
 <div class="heading-container">
-	<h2><span class="smallerText">Most Recent</span>{" "}<span class="biggerText">Blog Posts</span></h2>
+	<h2 class="text-center"><span class="smallerText">Most Recent</span>{" "}<span class="biggerText">Blog Posts</span></h2>
 </div>
 
 {firstThreePosts.map((post) => <PostList description={post.data.description} publishDate={post.data.publishDate} slug={post.slug} tags={post.data.tags} title={post.data.title} />)}
@@ -33,7 +33,6 @@ const firstThreePosts = unsortedPosts
 	h2 {
 		line-height: 1;
 		margin-bottom: 3rem;
-		text-align: center;
 	}
 
 	.view-all-container {
