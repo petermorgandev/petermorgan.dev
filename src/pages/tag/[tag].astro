@@ -53,8 +53,8 @@ const tagDescription = getTagDescription?.data?.description ?? `A collection of 
 ---
 
 <BaseLayout title={title} description={tagDescription}>
-	<div class="no-margin-last-element blog-post-header">
-		<h1>{title}</h1>
+	<div class="no-margin-last-element blog-post-header mb-6r text-center">
+		<h1 class="text-uppercase">{title}</h1>
 
 		<h2 class="fontsize-h3">{tagDescription}</h2>
 	</div>
@@ -68,13 +68,10 @@ const tagDescription = getTagDescription?.data?.description ?? `A collection of 
 		display: flex;
 		flex-direction: column;
 		margin-bottom: var(--margin-lots);
-		text-align: center;
 		width: 100%;
 	}
 
 	h1 {
-		text-align: center;
-		text-transform: uppercase;
 		margin-bottom: 3rem;
 	}
 
