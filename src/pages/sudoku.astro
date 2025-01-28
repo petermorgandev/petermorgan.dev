@@ -1,0 +1,86 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import PostList from "@components/blog/PostList.astro";
+
+const title = "Blog";
+const description =
+  "Notes, code snippets, and reminders related to website development and technology.";
+
+const unsortedSudokus = await getCollection("sudokus");
+const sortedSudokus = unsortedSudokus.sort((a, b) => {
+  return (
+    new Date(b.data.solveDate).valueOf() - new Date(a.data.solveDate).valueOf()
+  );
+});
+
+const unsortedPosts = await getCollection("blog");
+const sortedPosts = unsortedPosts.sort((a, b) => {
+  return (
+    new Date(b.data.publishDate).valueOf() -
+    new Date(a.data.publishDate).valueOf()
+  );
+});
+
+const tagSet = new Set<string>();
+sortedPosts.forEach((post) => {
+  if (post.data.tags) {
+    post.data.tags.forEach((tag: string) => tagSet.add(tag));
+  }
+});
+const tagArray = [...tagSet];
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="intro mb-6r no-margin-last-element text-center">
+    <h1 class="text-uppercase">Solved Sudokus</h1>
+    <h2 class="fontsize-h3">Sudoku puzzles that I have solved.</h2>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td> Solved On </td>
+        <td> Solve Time (h:m:s)</td>
+        <td>Link</td>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        sortedSudokus.map((post) => (
+          <tr>
+            <td>{post.data.solveDate}</td>
+            <td>{post.data.solveTime}</td>
+            <td>
+              <a href={post.data.url}>Puzzle Link</a>
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</BaseLayout>
+
+<style>
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (min-width: 576px) {
+    h1 {
+      box-shadow: inset 0 -0.5em 0 #868b9f;
+      line-height: 1;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      width: max-content;
+    }
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  thead {
+    font-weight: bold;
+  }
+</style>

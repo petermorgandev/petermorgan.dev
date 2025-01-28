@@ -33,6 +33,15 @@ const menuLinksCollection = defineCollection({
 	}),
 });
 
+const solvedSudokusCollection = defineCollection({
+	type: "data",
+	schema: z.object({
+		solveDate: z.string(),
+		solveTime: z.string().optional(),
+		url: z.string().url(),
+	}),
+});
+
 const tagsCollection = defineCollection({
 	type: "data",
 	schema: z.object({
@@ -45,5 +54,6 @@ export const collections = {
 	blog: blogPostsCollection,
 	"contact-links": contactLinksCollection,
 	"menu-links": menuLinksCollection,
+  sudokus: solvedSudokusCollection,
 	tags: tagsCollection,
 };
