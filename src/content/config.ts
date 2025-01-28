@@ -36,6 +36,7 @@ const menuLinksCollection = defineCollection({
 const solvedSudokusCollection = defineCollection({
 	type: "data",
 	schema: z.object({
+		name: z.string().optional(),
 		solveDate: z.string(),
 		solveTime: z.string().optional(),
 		url: z.string().url(),
