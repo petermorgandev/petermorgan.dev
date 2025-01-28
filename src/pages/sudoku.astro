@@ -40,20 +40,20 @@ const tagArray = [...tagSet];
   <table class="table">
     <thead>
       <tr>
-        <td> Solved On </td>
-        <td> Solve Time (h:m:s)</td>
-        <td>Link</td>
+        <td>Puzzle</td>
+        <td>Solved On</td>
+        <td>Solve Time (h:m:s)</td>
       </tr>
     </thead>
     <tbody>
       {
         sortedSudokus.map((post) => (
           <tr>
+            <td>
+              <a href={post.data.url}>{post.data.name}</a>
+            </td>
             <td>{post.data.solveDate}</td>
             <td>{post.data.solveTime}</td>
-            <td>
-              <a href={post.data.url}>Puzzle Link</a>
-            </td>
           </tr>
         ))
       }
