@@ -1,0 +1,71 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const title = "Sudoku";
+const description = "Sudoku puzzles I solved.";
+
+const unsortedSudokus = await getCollection("sudokus");
+const sortedSudokus = unsortedSudokus.sort((a, b) => {
+  return (
+    new Date(b.data.solveDate).valueOf() - new Date(a.data.solveDate).valueOf()
+  );
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="intro mb-6r no-margin-last-element text-center">
+    <h1 class="text-uppercase">{title}</h1>
+    <h2 class="fontsize-h3">{description}</h2>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Puzzle</td>
+          <td>Solved On</td>
+          <td>Solve Time (h:m:s)</td>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          sortedSudokus.map((post) => (
+            <tr>
+              <td>
+                <a href={post.data.url}>{post.data.name}</a>
+              </td>
+              <td>{post.data.solveDate}</td>
+              <td>{post.data.solveTime}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</BaseLayout>
+
+<style>
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (min-width: 576px) {
+    h1 {
+      box-shadow: inset 0 -0.5em 0 #868b9f;
+      line-height: 1;
+      margin-inline: auto;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      width: max-content;
+    }
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  thead {
+    font-weight: bold;
+  }
+</style>
