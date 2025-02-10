@@ -3,7 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 const title = "Sudoku";
-const description = "Sudoku puzzles that I solved.";
+const description = "Sudoku puzzles I solved.";
 
 const unsortedSudokus = await getCollection("sudokus");
 const sortedSudokus = unsortedSudokus.sort((a, b) => {

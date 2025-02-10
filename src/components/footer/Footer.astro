@@ -1,0 +1,46 @@
+---
+import ContactIcons from "@components/ContactIcons.astro";
+import FooterMenu from "@components/footer/FooterMenu.astro";
+---
+
+<footer>
+  <div class="bg-blue">
+    <div class="container">
+      <FooterMenu />
+
+      <h2>Contact Me</h2>
+      <p>
+        You can contact me by clicking on the icons below. I will respond -
+        assuming you're not soliciting or spamming me - as soon as I can.
+      </p>
+
+      <div>
+        <ContactIcons mode="light" lazy={true} />
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    color: white;
+    margin-top: auto;
+  }
+
+  h2 {
+    margin-top: 2rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  .bg-blue {
+    margin-top: var(--margin-lots);
+  }
+
+  .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+</style>
