@@ -10,9 +10,14 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title: propsTitle, description: propDescription } = Astro.props;
 
-const metaTitle = propsTitle ? `${propsTitle} - Peter Morgan - Website Developer` : "Peter Morgan - Website Developer";
-const metaDescription = propDescription ? propDescription : `Hi. I'm Peter Morgan - a web developer based in Denver, CO. Welcome to my small corner of the internet.`;
-const openGraphImage = "https://petermorgan.dev/images/meta/open-graph/open-graph-image-light-1200x600px.png";
+const metaTitle = propsTitle
+	? `${propsTitle} - Peter Morgan - Website Developer`
+	: "Peter Morgan - Website Developer";
+const metaDescription = propDescription
+	? propDescription
+	: `Hi. I'm Peter Morgan - a web developer based in Denver, CO. Welcome to my small corner of the internet.`;
+const openGraphImage =
+	"https://petermorgan.dev/images/meta/open-graph/open-graph-image-light-1200x600px.png";
 ---
 
 <meta charset="utf-8" />
@@ -36,11 +41,16 @@ const openGraphImage = "https://petermorgan.dev/images/meta/open-graph/open-grap
 <meta property="twitter:description" content={metaDescription} />
 <meta property="twitter:image" content={openGraphImage} />
 
-<link href={`${Astro.site}rss.xml`} rel="alternate" title="Blog Feed - Peter Morgan - Website Developer" type="application/rss+xml" />
+<link
+	href={`${Astro.site}rss.xml`}
+	rel="alternate"
+	title="Blog Feed - Peter Morgan - Website Developer"
+	type="application/rss+xml"
+/>
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <Favicon />
 
-<link rel="stylesheet" href="/files/bootstrap.min.css" />
+<link rel="stylesheet" href="/files/bootstrap-reboot.min.css" />
 
 <GlobalStyles />
