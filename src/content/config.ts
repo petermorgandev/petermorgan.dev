@@ -55,6 +55,6 @@ export const collections = {
 	blog: blogPostsCollection,
 	"contact-links": contactLinksCollection,
 	"menu-links": menuLinksCollection,
-  sudokus: solvedSudokusCollection,
+	sudokus: solvedSudokusCollection,
 	tags: tagsCollection,
 };
